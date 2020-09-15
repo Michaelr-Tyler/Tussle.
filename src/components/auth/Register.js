@@ -56,6 +56,7 @@ const {technicalTypes, getTechnicalTypes} = useContext(TechnicalTypeContext)
                                 props.history.push("/")
                             }
                         })
+                        
                 })
         } else {
             passwordDialog.current.showModal()
