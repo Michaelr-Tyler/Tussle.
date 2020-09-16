@@ -1,17 +1,17 @@
 import React, { useRef, useContext, useEffect } from "react"
 import "./Login.css"
 import { AccountTypeContext } from "../AccountTypeProvider"
-import { TechnicalTypeContext } from "../TechnicalTypeProvider"
+import { TechnicalContext } from "../TechnicalProvider"
 
 export const Register = (props) => {
 const {accountTypes, getAccountTypes} = useContext(AccountTypeContext)
-const {technicalTypes, getTechnicalTypes} = useContext(TechnicalTypeContext)
+const {technicals, getTechnicals} = useContext(TechnicalContext)
 
     const Name = useRef()
     const phoneNumber = useRef()
     const following = useRef()
     const accountType = useRef()
-    const technicalType = useRef()
+    const technical = useRef()
     const email = useRef()
     const password = useRef()
     const verifyPassword = useRef()
@@ -19,7 +19,7 @@ const {technicalTypes, getTechnicalTypes} = useContext(TechnicalTypeContext)
 
     useEffect(() => {
         getAccountTypes()
-        getTechnicalTypes()
+        getTechnicals()
     }, [])
 
     const existingUserCheck = () => {
@@ -45,7 +45,7 @@ const {technicalTypes, getTechnicalTypes} = useContext(TechnicalTypeContext)
                             name: Name.current.value,
                             phoneNumber: phoneNumber.current.value,
                             following: following.current.value,
-                            technicalId: parseInt(technicalType.current.value),
+                            technicalId: parseInt(technical.current.value),
                             accountTypeId: parseInt(accountType.current.value)
                         })
                     })
@@ -113,9 +113,9 @@ const {technicalTypes, getTechnicalTypes} = useContext(TechnicalTypeContext)
             <fieldset>
                 <div className="form-control">
                     <label htmlFor="technicalType">Technical </label>
-                    <select defaultValue="" name="technicalType" ref={technicalType} id="technicalType" className="form-control" >
+                    <select defaultValue="" name="technicalType" ref={technical} id="technicalType" className="form-control" >
                         <option value="0">Select a technical</option>
-                        {technicalTypes.map(t => (
+                        {technicals.map(t => (
                             <option key={t.id} value={t.id}>
                                 {t.type}
                             </option>
