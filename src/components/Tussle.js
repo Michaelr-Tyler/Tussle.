@@ -6,7 +6,8 @@ import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
 import "./Tussle.css"
 import { AccountTypeProvider } from "./AccountTypeProvider";
-import { TechnicalTypeProvider } from "./TechnicalTypeProvider";
+import { UsersProvider } from "./users/UsersProvider";
+import { TechnicalProvider } from "./TechnicalProvider";
 
 
 
@@ -16,8 +17,10 @@ export const Tussle = () => (
             if (localStorage.getItem("tussle_user")) {
                 return (
                     <>
+                    <UsersProvider>
                         <Route render={props => <Navbar {...props} />} />
                         <Route render={props => <ApplicationViews {...props} />} />
+                    </UsersProvider>
                     </>
                 )
             } else {
@@ -27,9 +30,9 @@ export const Tussle = () => (
 
         <Route path="/login" render={props => <Login {...props} />} />
         <AccountTypeProvider>
-            <TechnicalTypeProvider>
+            <TechnicalProvider>
                 <Route path="/register" render={props => <Register {...props} />} />
-            </TechnicalTypeProvider>
+            </TechnicalProvider>
         </AccountTypeProvider>
     </>
 )

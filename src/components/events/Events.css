@@ -1,0 +1,10 @@
+.events {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.event {
+    flex-basis: 100%;
+    margin: 10px 10px;
+}
