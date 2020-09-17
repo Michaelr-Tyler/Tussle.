@@ -6,6 +6,8 @@ import { EventProvider } from "./events/EventProvider";
 import { TechnicalProvider } from "./TechnicalProvider";
 import { AccountTypeProvider } from "./AccountTypeProvider";
 import { EventForm } from "./events/EventForm";
+import { WrestlerEventsList } from "./events/WrestlerEventsList";
+import { BidForm } from "./events/BidForm";
 
 
 
@@ -25,6 +27,7 @@ export const ApplicationViews = (props) => {
     
         <div>Organizer</div>
         <EventProvider>
+            <UsersProvider>
                 <TechnicalProvider>
                     <AccountTypeProvider>
                     <Route exact path="/events" render={ props => {
@@ -36,8 +39,12 @@ export const ApplicationViews = (props) => {
                     <Route exact path="/events/create" render={
                             props => <EventForm {...props} />
                         } />
+                    <Route exact path="/events/edit/:eventId(\d+)" render={
+                        props => <EventForm {...props} />
+                    } />
                     </AccountTypeProvider>
                 </TechnicalProvider>
+            </UsersProvider>
         </EventProvider>
         <Route path="/logout" render={
                 (props) => {
@@ -51,8 +58,24 @@ export const ApplicationViews = (props) => {
     } else if (currentUser.accountTypeId !== 1 && {}) {
         return (
             <>
-        
-            <div>Wrestler</div>
+            <EventProvider>
+                <UsersProvider>
+                    <TechnicalProvider>
+                        <AccountTypeProvider>
+                        <Route exact path="/" render={ props => {
+                                    return <>
+                                        <WrestlerEventsList {...props} />
+                                    </>
+                                }
+                            } />
+                        <Route exact path="/bid/:eventId(\d+)" render={
+                            props => <BidForm {...props} />
+                            } />
+                        </AccountTypeProvider>
+                    </TechnicalProvider>
+                </UsersProvider>
+            </EventProvider>
+            
             <Route path="/logout" render={
                     (props) => {
                         localStorage.removeItem("tussle_user")

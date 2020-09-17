@@ -1,76 +1,135 @@
-import React, {useContext, useRef, useState, useCallback, useEffect} from "react"
+import React, {useContext, useState, useEffect} from "react"
 import { EventContext } from "./EventProvider"
 import { TechnicalContext } from "../TechnicalProvider"
-import { AccountTypeContext } from "../AccountTypeProvider"
-import { UsersContext } from "../users/UsersProvider"
+
 
 export const EventForm = (props) => {
-    const { addEvents } = useContext(EventContext)
+    const { addEvents, events, updateEvent, getEvents } = useContext(EventContext)
     const { technicals, getTechnicals } = useContext(TechnicalContext)
-    const { currentUser, getCurrentUser } = useContext(UsersContext)
 
-    const name = useRef()
-    const city = useRef()
-    const state = useRef()
-    const date = useRef()
-    const technical = useRef()
+    const [show, setShow] = useState({})
+
+    const editMode = props.match.params.hasOwnProperty("eventId")
+
+    const handleControlledInputChange = (event) => {
+        const newShow = Object.assign({}, show)
+        newShow[event.target.name] = event.target.value
+
+        setShow(newShow)
+    }
+
+    const getEventInEditMode = () => {
+        if (editMode) {
+            const eventId = parseInt(props.match.params.eventId)
+            const selectedEvent = events.find(e => e.id === eventId) || {}
+            setShow(selectedEvent)
+        }
+    }
+
+    // const name = useRef()
+    // const city = useRef()
+    // const state = useRef()
+    // const date = useRef()
+    // const technical = useRef()
     
 
 useEffect(() => {
     getTechnicals()
-    getCurrentUser()
+    getEvents()
 }, [])
 
-const createNewEvent = () => {
-    const technicalId = parseInt(technical.current.value)
+useEffect(() => {
+    getEventInEditMode()
+}, [events])
 
-    if (technicalId === 0) {
+const createNewEvent = () => {
+    const technicalId = parseInt(show.technicalId)
+
+    if (show.technicalId === null) {
         window.alert("Please select a technical type, or atleast select open")
     } else {
+        if (editMode) {
+        updateEvent({
+            id:show.id,
+            name: show.name,
+            date: show.date,
+            locationCity: show.locationCity,
+            locationStateCode: show.locationStateCode,
+            technicalId: parseInt(show.technicalId),
+            userId: parseInt(localStorage.getItem("tussle_user"))
+
+        })
+        .then(() => props.history.push("/events"))
+    } else {
         addEvents({
-            name: name.current.value,
-            technicalId,
-            date: date.current.valueAsNumber,
-            locationCity: city.current.value,
-            locationStateCode: state.current.value,
-            userId: currentUser.id
+            name: show.name,
+            date: show.date,
+            locationCity: show.locationCity,
+            locationStateCode: show.locationStateCode,
+            technicalId: parseInt(show.technicalId),
+            userId: parseInt(localStorage.getItem("tussle_user"))
 
         })
         .then(() => props.history.push("/events"))
     }
+    } 
 }
 
 return (
     <form className="eventForm">
-        <h2 className="eventForm__title">New Event</h2>
+        <h2 className="eventForm__title">{editMode ? "Update Event" : "New Event"}</h2>
         <fieldset>
             <div className="form-group">
                 <label htmlFor="eventName">Event Name:</label>
-                <input type="text" id="eventName" ref={name} required autoFocus className="form-control" placeholder="Event Name" />
+                <input type="text" name="name" autocomplete="none" required autoFocus className="form-control" 
+                proptype="varchar"
+                placeholder="Event Name"
+                defaultValue={show.name}
+                onChange={handleControlledInputChange}
+                 />
             </div>
         </fieldset>
         <fieldset>
             <div className="form-group">
-                <label htmlFor="eventlocationCity">Event city:</label>
-                <input type="text" id="eventlocationCity" ref={city} required autoFocus className="form-control" placeholder="Event City" />
+                <label htmlFor="locationCity">Event city:</label>
+                <input type="text"  name="locationCity" required autoFocus className="form-control" 
+                proptype="varchar"
+                placeholder="Event City"
+                defaultValue={show.locationCity} 
+                onChange={handleControlledInputChange}
+                />
+                
             </div>
         </fieldset>
         <fieldset>
             <div className="form-group">
-                <label htmlFor="eventLocationState">Event state code:</label>
-                <input type="text" id="eventLocationState" ref={state} required autoFocus className="form-control" placeholder="State abbreviation" />
+                <label htmlFor="locationStateCode">Event state code:</label>
+                <input type="text" name="locationStateCode" required autoFocus className="form-control" 
+                proptype="varchar"
+                placeholder="State abbreviation" 
+                defaultValue={show.locationStateCode} 
+                onChange={handleControlledInputChange}
+                />
             </div>
         </fieldset>
         <fieldset>
             <div className="form-group">
-                <label htmlFor="eventDate">When: </label>
-                <input type="date" id="EventDate" ref={date} valueAsNumber required autoFocus className="form-control" />
+                <label htmlFor="date">When: </label>
+                <input type="date" name="date" valueAsNumber required autoFocus className="form-control" 
+                proptype="int"
+                defaultValue={show.date}
+                onChange={handleControlledInputChange}
+                />
             </div>
         </fieldset>
         <fieldset>
                 <div className="form-group">
                     <label htmlFor="technical">Technical type: </label>
-                    <select defaultValue="" name="technical" ref={technical} id="Technical" className="form-control" >
+                    <select name="technicalId" className="form-control"
+                    proptype="int"
+                    value={show.technicalId}
+                    onChange={handleControlledInputChange}
+                    >
                         <option value="0">Select a Type</option>
                         {technicals.map(t => (
                             <option key={t.id} value={t.id}>
@@ -86,7 +145,7 @@ return (
             createNewEvent()
         }}
         className="btn btn-primary">
-            Save Event
+            {editMode ? "Update event" : "Save event"}
         </button>
     </form>
 )
