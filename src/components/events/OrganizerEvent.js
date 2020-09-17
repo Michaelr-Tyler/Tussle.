@@ -2,8 +2,8 @@ import React, {useContext, useEffect, useState} from "react"
 import { EventContext } from "./EventProvider";
 import "./Events.css"
 
-export const OrganizerEvent = ({ event, technical }) => {
-    const {deleteEvent, getEventById} = useContext(EventContext)
+export const OrganizerEvent = ({ event, technical, history }) => {
+    const {deleteEvent} = useContext(EventContext)
 
 
    
@@ -11,7 +11,7 @@ export const OrganizerEvent = ({ event, technical }) => {
     return (
     <section className="event organizer">
         <h3>Presenting: {event.name}</h3>
-        <div>{new Date(event.date + 86400000).toLocaleDateString("en-US")  }</div>
+        <div>{event.date}</div>
         <div>In {event.locationCity}, {event.locationStateCode}</div>
         <div>Looking for: {technical.type}</div>
         <button
@@ -20,6 +20,9 @@ export const OrganizerEvent = ({ event, technical }) => {
         }>
             Delete Event
         </button>
+        <button onClick={() => {
+                        history.push(`/events/edit/${event.id}`)
+                    }} className="btn btn-primary">Edit</button>
     </section>
     )
 }

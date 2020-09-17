@@ -11,10 +11,20 @@ export const UserEventProvider = (props) => {
         .then(setUserEvents)
     }
 
+    const addUserEvents = userEvent =>{
+        return fetch("http://localhost:8088/userEvents", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(userEvent)
+        })
+        .then(getUserEvents)
+    }
 
     return (
         <AnimalContext.Provider value={{
-            userEvents, getUserEvents
+            userEvents, getUserEvents, addUserEvents
         }}>
             {props.children}
         </AnimalContext.Provider>
