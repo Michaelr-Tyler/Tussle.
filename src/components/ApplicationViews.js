@@ -8,6 +8,7 @@ import { AccountTypeProvider } from "./AccountTypeProvider";
 import { EventForm } from "./events/EventForm";
 import { WrestlerEventsList } from "./events/WrestlerEventsList";
 import { BidForm } from "./events/BidForm";
+import { UserEventProvider } from "./events/UserEventProvider";
 
 
 
@@ -62,15 +63,17 @@ export const ApplicationViews = (props) => {
                 <UsersProvider>
                     <TechnicalProvider>
                         <AccountTypeProvider>
-                        <Route exact path="/" render={ props => {
-                                    return <>
-                                        <WrestlerEventsList {...props} />
-                                    </>
-                                }
-                            } />
-                        <Route exact path="/bid/:eventId(\d+)" render={
-                            props => <BidForm {...props} />
-                            } />
+                            <UserEventProvider>
+                                <Route exact path="/" render={ props => {
+                                            return <>
+                                                <WrestlerEventsList {...props} />
+                                            </>
+                                        }
+                                    } />
+                                <Route exact path="/bid/:eventId(\d+)" render={
+                                    props => <BidForm {...props} />
+                                    } />
+                            </UserEventProvider>
                         </AccountTypeProvider>
                     </TechnicalProvider>
                 </UsersProvider>

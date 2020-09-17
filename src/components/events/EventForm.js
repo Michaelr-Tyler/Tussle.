@@ -23,6 +23,7 @@ export const EventForm = (props) => {
             const eventId = parseInt(props.match.params.eventId)
             const selectedEvent = events.find(e => e.id === eventId) || {}
             setShow(selectedEvent)
+
         }
     }
 
