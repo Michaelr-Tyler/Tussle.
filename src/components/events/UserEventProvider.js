@@ -23,10 +23,10 @@ export const UserEventProvider = (props) => {
     }
 
     return (
-        <AnimalContext.Provider value={{
+        <UserEventContext.Provider value={{
             userEvents, getUserEvents, addUserEvents
         }}>
             {props.children}
-        </AnimalContext.Provider>
+        </UserEventContext.Provider>
     )
 }
