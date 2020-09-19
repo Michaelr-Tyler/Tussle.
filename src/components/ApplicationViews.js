@@ -9,6 +9,10 @@ import { EventForm } from "./events/EventForm";
 import { WrestlerEventsList } from "./events/WrestlerEventsList";
 import { BidForm } from "./events/BidForm";
 import { UserEventProvider } from "./events/UserEventProvider";
+import { WrestlerBidEventsList } from "./events/WrestlerBidEventsList";
+import { UserList } from "./users/UserList"
+import { UserSearch } from "./users/UserSearch";
+import { OrganizerBidList } from "./events/OrganizerBidList";
 
 
 
@@ -26,11 +30,19 @@ export const ApplicationViews = (props) => {
     return (
         <>
     
-        <div>Organizer</div>
+        
         <EventProvider>
             <UsersProvider>
                 <TechnicalProvider>
                     <AccountTypeProvider>
+                        <UserEventProvider>
+                    <Route exact path="/" render={ props => {
+                                return <>
+                                    <UserSearch />
+                                    <UserList {...props} />
+                                    </>
+                                        }
+                                    } />
                     <Route exact path="/events" render={ props => {
                                 return <>
                                     <EventsList {...props} />
@@ -43,6 +55,10 @@ export const ApplicationViews = (props) => {
                     <Route exact path="/events/edit/:eventId(\d+)" render={
                         props => <EventForm {...props} />
                     } />
+                    <Route exact path="/bids" render={
+                            props => <OrganizerBidList {...props} />
+                    } />
+                        </UserEventProvider>
                     </AccountTypeProvider>
                 </TechnicalProvider>
             </UsersProvider>
@@ -72,6 +88,9 @@ export const ApplicationViews = (props) => {
                                     } />
                                 <Route exact path="/bid/:eventId(\d+)" render={
                                     props => <BidForm {...props} />
+                                    } />
+                                <Route exact path="/bids" render={
+                                    props => <WrestlerBidEventsList {...props} />
                                     } />
                             </UserEventProvider>
                         </AccountTypeProvider>

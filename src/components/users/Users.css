@@ -1,0 +1,15 @@
+.wrestlers{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.wrestler {
+    border: 2px solid goldenrod;
+    background-color: blanchedalmond;
+    border-radius: 5px;
+    box-shadow: 3px 3px lightgray;
+    margin: 10px;
+    padding: 5px;
+    flex-basis: 25%;
+}
