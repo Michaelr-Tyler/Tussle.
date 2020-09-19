@@ -1,6 +1,15 @@
 import React from "react"
 import "./Users.css";
 
-export const User = () => {
-    
+export const User = ({user, technical}) => {
+    return (
+    <section className="wrestler">
+        <h4>{user.name}</h4>
+        <div>{user.following}</div>
+        <div>{user.phoneNumber}</div>
+        <div>{user.email}</div>
+        <div>{technical.type}</div>
+        <button>Message</button>
+    </section>
+    )
 }

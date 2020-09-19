@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react"
 import { EventContext } from "./EventProvider"  
 import { WrestlerEvent } from "./WrestlerEvent"
-import { UsersContext } from "../users/UsersProvider"
 import { TechnicalContext } from "../TechnicalProvider"
 import "./Events.css"
 

@@ -30,9 +30,6 @@ export const EventsList = ({history}) => {
     return (
         <section className="organizerEventsContainer">
             <h1>My Events</h1>
-            <button onClick={() => history.push("/events/create")}>
-                New Event
-            </button>
             <div className="events organizer">
                 {
                     currentUserEvents.map(event => {
@@ -48,6 +45,9 @@ export const EventsList = ({history}) => {
                 })
                 }
             </div>
+            <button onClick={() => history.push("/events/create")}>
+                New Event
+            </button>
         </section>
     )
 
