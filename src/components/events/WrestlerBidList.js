@@ -1,16 +1,16 @@
 import React, { useContext, useEffect } from "react"
-import { TechnicalContext } from "../TechnicalProvider"
+import { EventContext } from "./EventProvider"  
 import { UsersContext } from "../users/UsersProvider"
-import { EventContext } from "./EventProvider"
+import { TechnicalContext } from "../TechnicalProvider"
 import { UserEventContext } from "./UserEventProvider"
-import { OrganizerBids } from "./OrganizerBid";
+import { WrestlerBid } from "./WreslterBids"
+import "./Events.css"
 
-
-export const OrganizerBidList = (props) => {
+export const WrestlerBidList = ({history}) => {
     const {events, getEvents} = useContext(EventContext)
     const {technicals, getTechnicals } = useContext(TechnicalContext)
     const { userEvents, getUserEvents } = useContext(UserEventContext)
-    const { currentUser,getCurrentUser, users, getUsers} = useContext(UsersContext)
+    const { currentUser,getCurrentUser} = useContext(UsersContext)
 
     useEffect(() => {
         getEvents()
@@ -19,25 +19,24 @@ export const OrganizerBidList = (props) => {
         .then(getUserEvents)
     },[])
 
-    const currentUserBidEvents = userEvents.filter((ue) => {
-        const currentUserBidEventsRelationships = events.filter(evt => evt.id === ue.eventId && currentUser.id === evt.userId)
+
+    const currentUserEvents = userEvents.filter((ue) => {
+        const currentUserBidEventsRelationships = events.filter(evt => evt.id === ue.eventId && currentUser.id === ue.userId)
         return currentUserBidEventsRelationships.length !== 0
     }) || {}
-
-
-
+    
+    console.log(currentUserEvents)
 
     return (
         <section className="organizerEventsContainer">
-            <h1>Bids</h1>
-            <div className="events wrestlerBids">
+            <h1>My Events</h1>
+            <div className="events wrestlerMyEvent">
                 {
-                    currentUserBidEvents.map(cue => {
+                    currentUserEvents.map(cue => {
                     return (
                     <>
-                    <OrganizerBids key={cue.id} 
-                    userEvent={cue}
-                    />
+                    <WrestlerBid key={cue.id} 
+                    userEvent = {cue} />
                     </>
                     )
                 })
@@ -45,4 +44,5 @@ export const OrganizerBidList = (props) => {
             </div>
         </section>
     )
+
 }

@@ -15,3 +15,8 @@
 .btn {
     width:50px;
 }
+
+.denied {
+    background-color: darkgray;
+    padding:10px;
+}
