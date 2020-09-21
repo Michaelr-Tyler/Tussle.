@@ -26,12 +26,6 @@ export const EventForm = (props) => {
 
         }
     }
-
-    // const name = useRef()
-    // const city = useRef()
-    // const state = useRef()
-    // const date = useRef()
-    // const technical = useRef()
     
 
 useEffect(() => {

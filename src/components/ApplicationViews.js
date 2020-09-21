@@ -9,10 +9,11 @@ import { EventForm } from "./events/EventForm";
 import { WrestlerEventsList } from "./events/WrestlerEventsList";
 import { BidForm } from "./events/BidForm";
 import { UserEventProvider } from "./events/UserEventProvider";
-import { WrestlerBidEventsList } from "./events/WrestlerBidEventsList";
+import { WrestlerBidList } from "./events/WrestlerBidList";
 import { UserList } from "./users/UserList"
 import { UserSearch } from "./users/UserSearch";
 import { OrganizerBidList } from "./events/OrganizerBidList";
+import { WrestlerMyEventsList } from "./events/WrestlerMyEventsList";
 
 
 
@@ -72,7 +73,7 @@ export const ApplicationViews = (props) => {
         
         </>
     )
-    } else if (currentUser.accountTypeId !== 1 && {}) {
+    } else {
         return (
             <>
             <EventProvider>
@@ -90,7 +91,10 @@ export const ApplicationViews = (props) => {
                                     props => <BidForm {...props} />
                                     } />
                                 <Route exact path="/bids" render={
-                                    props => <WrestlerBidEventsList {...props} />
+                                    props => <WrestlerBidList {...props} />
+                                    } />
+                                    <Route exact path="/events" render={
+                                    props => <WrestlerMyEventsList {...props} />
                                     } />
                             </UserEventProvider>
                         </AccountTypeProvider>
