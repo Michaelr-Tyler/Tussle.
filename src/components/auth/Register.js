@@ -72,7 +72,7 @@ const {technicals, getTechnicals} = useContext(TechnicalContext)
             </dialog>
 
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for Tussle</h1>
+                <h1 className="h3 mb-3 font-weight-normal">Tussle Registration</h1>
                 <fieldset>
                     <label htmlFor="name"> Name </label>
                     <input ref={Name} type="text"
@@ -127,6 +127,7 @@ const {technicals, getTechnicals} = useContext(TechnicalContext)
                     <label htmlFor="inputEmail"> Email address </label>
                     <input ref={email} type="email"
                         name="email"
+                        autoComplete="none"
                         className="form-control"
                         placeholder="Email address"
                         required />
@@ -135,6 +136,7 @@ const {technicals, getTechnicals} = useContext(TechnicalContext)
                     <label htmlFor="inputPassword"> Password </label>
                     <input ref={password} type="password"
                         name="password"
+                        autoComplete="none"
                         className="form-control"
                         placeholder="Password"
                         required />
@@ -149,7 +151,7 @@ const {technicals, getTechnicals} = useContext(TechnicalContext)
                 </fieldset>
                 <fieldset>
                     <button type="submit">
-                        Sign in
+                        Register
                     </button>
                 </fieldset>
             </form>

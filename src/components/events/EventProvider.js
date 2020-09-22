@@ -4,7 +4,7 @@ export const EventContext = React.createContext()
 
 export const EventProvider = (props) => {
     const [events, setEvents] = useState([ ])
-    console.log(events)
+
     const getEvents = () =>{
         return fetch("http://localhost:8088/events?_expand=user")
         .then(res => res.json())

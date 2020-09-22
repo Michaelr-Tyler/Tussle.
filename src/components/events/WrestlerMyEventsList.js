@@ -6,7 +6,7 @@ import { UserEventContext } from "./UserEventProvider"
 import { WrestlerMyEvents } from "./WrestlerMyEvents"
 import "./Events.css"
 
-export const WrestlerMyEventsList = ({history}) => {
+export const WrestlerMyEventsList = (props) => {
     const {events, getEvents} = useContext(EventContext)
     const {technicals, getTechnicals } = useContext(TechnicalContext)
     const { userEvents, getUserEvents } = useContext(UserEventContext)
@@ -36,7 +36,8 @@ export const WrestlerMyEventsList = ({history}) => {
                     return (
                     <>
                     <WrestlerMyEvents key={cue.id} 
-                    userEvent = {cue} />
+                    userEvent = {cue} 
+                    props={props}/>
                     </>
                     )
                 })

@@ -1,0 +1,33 @@
+body {
+background-color: darkgray;
+}
+h1 {
+    font-size: 5.5rem;
+    text-align: center;
+}
+
+
+.form--login {
+    margin: 0 auto;
+    text-align: left;
+}
+
+.form--login > fieldset > input[type="email"],
+.form--login > fieldset > input[type="password"] {
+    width: 25em;
+    border-color: lightgray;
+
+    border-radius: 4px;
+    outline-style: none;
+}
+
+fieldset {
+    display: flex;
+    margin: 4px;
+    border:1px solid black;
+    border-radius: 4px;
+    box-shadow: 2px 2px lightgray ;
+    max-width: 450px;
+    font-size: large;
+    margin: 0 auto;
+}

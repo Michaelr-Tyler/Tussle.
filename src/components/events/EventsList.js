@@ -5,7 +5,7 @@ import { UsersContext } from "../users/UsersProvider"
 import { TechnicalContext } from "../TechnicalProvider"
 import "./Events.css"
 
-export const EventsList = ({history}) => {
+export const EventsList = ({props}) => {
     const {events, getEvents} = useContext(EventContext)
     const {technicals, getTechnicals } = useContext(TechnicalContext)
     const {currentUser, getCurrentUser} = useContext(UsersContext)
@@ -22,7 +22,7 @@ export const EventsList = ({history}) => {
     },[])
     
     const currentUserEvents = events.filter(e => e.userId === currentUser.id) || {}
-    console.log(currentUserEvents)
+
 
     
 
@@ -38,14 +38,14 @@ export const EventsList = ({history}) => {
                     <>
                     <OrganizerEvent key={event.id} 
                     event={event}
-                    history={history}
+                    props={props}
                     technical = {type} />
                     </>
                     )
                 })
                 }
             </div>
-            <button onClick={() => history.push("/events/create")}>
+            <button onClick={() => props.history.push("/events/create")}>
                 New Event
             </button>
         </section>

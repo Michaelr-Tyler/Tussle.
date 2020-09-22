@@ -1,7 +1,7 @@
 import React from "react"
 import "./Users.css";
 
-export const User = ({user, technical}) => {
+export const User = ({user, technical, props}) => {
     return (
     <section className="wrestler">
         <h4>{user.name}</h4>
@@ -9,7 +9,13 @@ export const User = ({user, technical}) => {
         <div>{user.phoneNumber}</div>
         <div>{user.email}</div>
         <div>{technical.type}</div>
-        <button>Message</button>
+        <button type="submit"
+        onClick={evt => {
+            evt.preventDefault()
+            props.history.push(`/messages/${user.id}`)
+            
+        }}
+        className="btn btn-primary">Message</button>
     </section>
     )
 }

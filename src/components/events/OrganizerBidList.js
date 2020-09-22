@@ -37,6 +37,7 @@ export const OrganizerBidList = (props) => {
                     <>
                     <OrganizerBids key={cue.id} 
                     userEvent={cue}
+                    props={props}
                     />
                     </>
                     )
