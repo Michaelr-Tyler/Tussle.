@@ -17,7 +17,7 @@ export const OrganizerBids = ({ userEvent, props }) => {
     const wrestler = users.find(u => u.id === userEvent.userId) || {}
     const technicalType = technicals.find(t => t.id === wrestler.technicalId) || {}
     
-    if (!userEvent.booked) {
+    if (!userEvent.booked && !userEvent.denied) {
     return (
     <section className="event wrestlerBids">
         <h3>Event: {userEvent.event.name}</h3>
@@ -27,6 +27,8 @@ export const OrganizerBids = ({ userEvent, props }) => {
         <div>{wrestler.email}</div>
         <div>{wrestler.phoneNumber}</div>
         <div>{technicalType.type}</div>
+        
+        
         <button type="submit"
         onClick={evt => {
             evt.preventDefault()
@@ -36,6 +38,8 @@ export const OrganizerBids = ({ userEvent, props }) => {
         className="btn btn-primary">
             Accept
         </button>
+
+
         <button type="submit"
         onClick={evt => {
             evt.preventDefault()
@@ -43,6 +47,8 @@ export const OrganizerBids = ({ userEvent, props }) => {
             
         }}
         className="btn btn-primary">Deny</button>
+        
+        
          <button type="submit"
         onClick={evt => {
             evt.preventDefault()
@@ -50,6 +56,8 @@ export const OrganizerBids = ({ userEvent, props }) => {
             
         }}
         className="btn btn-primary">Message</button>
+
+
     </section>
     )
     } else {
