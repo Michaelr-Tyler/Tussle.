@@ -13,7 +13,7 @@ export const UsersProvider = (props) => {
         .then(setUsers)
     }
     const getCurrentUser = () => {
-        const currentUserId = localStorage.getItem("tussle_user")
+        const currentUserId = sessionStorage.getItem("tussle_user")
         const id = parseInt(currentUserId)
         return fetch(`http://localhost:8088/users/${id}`)
         .then(res => res.json())

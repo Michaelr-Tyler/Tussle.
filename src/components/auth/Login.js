@@ -21,7 +21,7 @@ export const Login = props => {
         existingUserCheck()
             .then(exists => {
                 if (exists && exists.password === password.current.value) {
-                    localStorage.setItem("tussle_user", exists.id)
+                    sessionStorage.setItem("tussle_user", exists.id)
                     props.history.push("/")
                 } else if (exists && exists.password !== password.current.value) {
                     passwordDialog.current.showModal()
@@ -43,15 +43,15 @@ export const Login = props => {
             </dialog>
             <section className="form">
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1 className="form--title">Tussle</h1>
-                    <h2>Please sign in</h2>
+                    <h1 className="form--title">Tussle.</h1>
+                    <h2 className="form--text">Please sign in</h2>
                     <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
+                        <label htmlFor="inputEmail"> Email Address </label>
                         <input ref={email} type="email"
                             id="email"
                             autoComplete="none"
                             className="form-control"
-                            placeholder=""
+                            placeholder="E-mail"
                             required autoFocus />
                     </fieldset>
                     <fieldset>
@@ -60,18 +60,18 @@ export const Login = props => {
                             id="password"
                             autoComplete="none"
                             className="form-control"
-                            placeholder=""
+                            placeholder="Password"
                             required />
                     </fieldset>
-                    <fieldset>
+                    <fieldset className="signIn--register">
                         <button type="submit">
                             Sign in
                         </button>
+                        <section className="link--register">
+                            <Link to="/register">Sign up here</Link>
+                        </section>
                     </fieldset>
                 </form>
-            </section>
-            <section className="link--register">
-                <Link to="/register">Sign up here!</Link>
             </section>
         </main>
     )
