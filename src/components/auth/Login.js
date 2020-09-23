@@ -43,7 +43,7 @@ export const Login = props => {
             </dialog>
             <section className="form">
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Tussle</h1>
+                    <h1 className="form--title">Tussle</h1>
                     <h2>Please sign in</h2>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>

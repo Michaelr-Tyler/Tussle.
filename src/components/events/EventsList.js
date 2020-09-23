@@ -5,7 +5,7 @@ import { UsersContext } from "../users/UsersProvider"
 import { TechnicalContext } from "../TechnicalProvider"
 import "./Events.css"
 
-export const EventsList = ({props}) => {
+export const EventsList = ({history}) => {
     const {events, getEvents} = useContext(EventContext)
     const {technicals, getTechnicals } = useContext(TechnicalContext)
     const {currentUser, getCurrentUser} = useContext(UsersContext)
@@ -38,14 +38,14 @@ export const EventsList = ({props}) => {
                     <>
                     <OrganizerEvent key={event.id} 
                     event={event}
-                    props={props}
+                    history={history}
                     technical = {type} />
                     </>
                     )
                 })
                 }
             </div>
-            <button onClick={() => props.history.push("/events/create")}>
+            <button onClick={() => history.push("/events/create")}>
                 New Event
             </button>
         </section>

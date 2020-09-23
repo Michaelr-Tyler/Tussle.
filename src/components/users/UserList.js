@@ -22,15 +22,15 @@ export const UserList = (props) => {
     
     useEffect(() => {
         const wrestlersOnly = users.filter(u => u.accountTypeId === 2)
-        const matchingUsers = wrestlersOnly.filter(user => user.name.toLowerCase().includes(searchTerms.toLowerCase()))
+        const matchingUsers = wrestlersOnly.filter(user => (user.name.toLowerCase().includes(searchTerms.toLowerCase())) || (user.technical.type.toLowerCase().includes(searchTerms.toLowerCase())))
         setFiltered(matchingUsers)
      }, [searchTerms])
 
-     useEffect(() => {
-        const wrestlersOnly = users.filter(u => u.accountTypeId === 2)
-        const matchingUsersByType = wrestlersOnly.filter(user => user.technical.type.toLowerCase().includes(searchTerms.toLowerCase()))
-        setFiltered(matchingUsersByType)
-     }, [searchTerms])
+    //  useEffect(() => {
+    //     const wrestlersOnly = users.filter(u => u.accountTypeId === 2)
+    //     const matchingUsersByType = wrestlersOnly.filter(user => (user.technical.type.toLowerCase().includes(searchTerms.toLowerCase())))
+    //     setFiltered(matchingUsersByType)
+    //  }, [searchTerms])
  
  
      useEffect(() => {
