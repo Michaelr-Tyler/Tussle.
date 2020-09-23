@@ -8,7 +8,7 @@ export const UsersProvider = (props) => {
     const [currentUser, setCurrentUser] = useState([])
     const [searchTerms, setTerms] = useState("")
     const getUsers= () => {
-        return fetch("http://localhost:8088/users")
+        return fetch("http://localhost:8088/users?_expand=technical")
         .then(res => res.json())
         .then(setUsers)
     }

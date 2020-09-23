@@ -3,7 +3,7 @@ import { TechnicalContext } from "../TechnicalProvider"
 import { UserEventContext } from "./UserEventProvider"
 import "./Events.css"
 
-export const WrestlerMyEvents = ( {  userEvent  }) => {
+export const WrestlerMyEvents = ( {  userEvent, props }) => {
     const {deleteUserEvent} = useContext(UserEventContext)
     const {technicals} = useContext(TechnicalContext)
 
@@ -19,9 +19,13 @@ if (userEvent.booked) {
         <div>Looking for: {technical.type}</div>
         <div>Your cut: {userEvent.bid}</div>
         <div>BOOKED</div>
-        <button>
-            Message
-        </button>
+        <button type="submit"
+        onClick={evt => {
+            evt.preventDefault()
+            props.history.push(`/messages/${userEvent.event.userId}`)
+            
+        }}
+        className="btn btn-primary">Message</button>
     </section>
     )
  } else {

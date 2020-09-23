@@ -6,7 +6,7 @@ import { User } from "./Users"
 import { UsersContext } from "./UsersProvider"
 
 
-export const UserList = () => {
+export const UserList = (props) => {
     const {users, getUsers, searchTerms} = useContext(UsersContext)
     const {technicals, getTechnicals} = useContext(TechnicalContext)
 
@@ -24,6 +24,12 @@ export const UserList = () => {
         const wrestlersOnly = users.filter(u => u.accountTypeId === 2)
         const matchingUsers = wrestlersOnly.filter(user => user.name.toLowerCase().includes(searchTerms.toLowerCase()))
         setFiltered(matchingUsers)
+     }, [searchTerms])
+
+     useEffect(() => {
+        const wrestlersOnly = users.filter(u => u.accountTypeId === 2)
+        const matchingUsersByType = wrestlersOnly.filter(user => user.technical.type.toLowerCase().includes(searchTerms.toLowerCase()))
+        setFiltered(matchingUsersByType)
      }, [searchTerms])
  
  
@@ -46,6 +52,7 @@ export const UserList = () => {
                             <User key={wrestler.id} 
                             user={wrestler}
                             technical={type}
+                            props={props}
                              />
 
                             </>

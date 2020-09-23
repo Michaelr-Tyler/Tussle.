@@ -4,7 +4,7 @@ import { UsersContext } from "../users/UsersProvider"
 import { TechnicalContext } from "../TechnicalProvider"
 import "./Events.css"
 
-export const OrganizerBids = ({ userEvent }) => {
+export const OrganizerBids = ({ userEvent, props }) => {
     const {updateUserEventBookedStatus, updateUserEventDeniedStatus} = useContext(UserEventContext)
     const {getUsers, users} = useContext(UsersContext)
    //how is technicals working? I never brought them into this component by envoking getTechnicals
@@ -43,7 +43,13 @@ export const OrganizerBids = ({ userEvent }) => {
             
         }}
         className="btn btn-primary">Deny</button>
-        <button>Message</button> 
+         <button type="submit"
+        onClick={evt => {
+            evt.preventDefault()
+            props.history.push(`/messages/${userEvent.userId}`)
+            
+        }}
+        className="btn btn-primary">Message</button>
     </section>
     )
     } else {
