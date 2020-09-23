@@ -1,9 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@600&display=swap');
+body{
+    background-color: #BFB1B0;
+}
+
 .form--title {
     font-size: 5rem;
     text-align: center;
     margin-top: 150px;
+    /* font-family: 'IBM Plex Serif', serif; */
 }
 
 fieldset {
     display: flex;
+    text-align: left;
+    max-width: 25rem;
+    border-radius: 6px;
+    margin:5px auto 6px auto;
+    padding: 5px;
+    border: 1px solid black;
+    box-shadow: 2px 2px #4F4140;
 }
+
+.form--login > fieldset > input[type="email"],
+.form--login > fieldset > input[type="password"] {
+    width: 25em;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.form--text{
+    text-align: center;
+}
+.signIn--register {
+    display: flex;
+    
+}
+.link--register a {
+
+    border: none;
+    text-align: center;
+    color:black;
+}
+

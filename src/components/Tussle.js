@@ -14,7 +14,7 @@ import { TechnicalProvider } from "./TechnicalProvider";
 export const Tussle = () => (
     <>
         <Route render={() => {
-            if (localStorage.getItem("tussle_user")) {
+            if (sessionStorage.getItem("tussle_user")) {
                 return (
                     <>
                     <UsersProvider>

@@ -47,7 +47,7 @@ export const BidForm = (props) => {
                 bid: bid.bidAmount,
                 booked: false,
                 denied: false,
-                userId: parseInt(localStorage.getItem("tussle_user"))
+                userId: parseInt(sessionStorage.getItem("tussle_user"))
             })
             .then(() => props.history.push("/"))
         }

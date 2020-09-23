@@ -52,7 +52,7 @@ const {technicals, getTechnicals} = useContext(TechnicalContext)
                         .then(_ => _.json())
                         .then(createdUser => {
                             if (createdUser.hasOwnProperty("id")) {
-                                localStorage.setItem("tussle_user", createdUser.id)
+                                sessionStorage.setItem("tussle_user", createdUser.id)
                                 props.history.push("/")
                             }
                         })

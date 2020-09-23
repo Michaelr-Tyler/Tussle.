@@ -71,7 +71,7 @@ export const ApplicationViews = (props) => {
         </EventProvider>
         <Route path="/logout" render={
                 (props) => {
-                    localStorage.removeItem("tussle_user")
+                    sessionStorage.removeItem("tussle_user")
                     props.history.push("/login")
                 }
             } />
@@ -116,7 +116,7 @@ export const ApplicationViews = (props) => {
             
             <Route path="/logout" render={
                     (props) => {
-                        localStorage.removeItem("tussle_user")
+                        sessionStorage.removeItem("tussle_user")
                         props.history.push("/login")
                     }
                 } />
