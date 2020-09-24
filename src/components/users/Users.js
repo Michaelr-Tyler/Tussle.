@@ -7,7 +7,7 @@ export const User = ({user, technical, props}) => {
         <h4>{user.name}</h4>
         <div>{user.following}</div>
         <div>{user.phoneNumber}</div>
-        <div>{user.email}</div>
+        <div className="wrestler__email">{user.email}</div>
         <div>{technical.type}</div>
         <button type="submit"
         onClick={evt => {

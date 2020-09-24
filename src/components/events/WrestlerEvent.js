@@ -6,7 +6,7 @@ export const WrestlerEvent = ( {event, technical, history  }) => {
 
 
     return (
-    <section className="event wrestler">
+    <section className="event">
         <h3>Presenting: {event.name}</h3>
         <div>{event.date}</div>
         <div>In {event.locationCity}, {event.locationStateCode}</div>

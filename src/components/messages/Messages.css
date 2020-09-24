@@ -1,0 +1,31 @@
+.users {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: 500px;
+    overflow: scroll;
+}
+
+.user {
+    font-size: 30px;
+    border: 2px solid #4F4140;
+    border-radius: 6px;
+    margin: 25px 20px;
+    background-color: #BFD1E5;
+    max-width: 500px;
+    height: 100px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    text-align: end;
+    padding-right: 50px;
+
+}
+.user__name a {
+    text-decoration: none;
+    color: #4F4140;
+}
+
+.user a:hover{
+    border-radius: 3px;
+    
+
+}

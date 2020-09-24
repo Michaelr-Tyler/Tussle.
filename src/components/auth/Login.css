@@ -19,6 +19,8 @@ fieldset {
     padding: 5px;
     border: 1px solid black;
     box-shadow: 2px 2px #4F4140;
+    text-align: end;
+    padding-right: 10px;
 }
 
 .form--login > fieldset > input[type="email"],
@@ -37,7 +39,6 @@ fieldset {
     
 }
 .link--register a {
-
     border: none;
     text-align: center;
     color:black;

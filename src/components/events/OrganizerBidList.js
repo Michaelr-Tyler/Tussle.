@@ -28,7 +28,7 @@ export const OrganizerBidList = (props) => {
 
 
     return (
-        <section className="organizerEventsContainer">
+        <section className="organizerBidsContainer">
             <h1>Bids</h1>
             <div className="events wrestlerBids">
                 {
