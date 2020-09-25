@@ -24,7 +24,7 @@ export const WrestlerEventsList = ({history}) => {
     return (
         <section className="organizerEventsContainer">
             <h1>Events</h1>
-            <div className="events wrestler">
+            <div className="events ">
                 {
                     events.map(event => {
                     const type = technicals.find(t => t.id === event.technicalId) || {}

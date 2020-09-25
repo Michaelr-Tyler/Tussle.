@@ -42,7 +42,7 @@ export const UserList = (props) => {
 
     return (
         <section className="wrestlersContainer">
-            <h1>Wrestlers</h1>
+            <h1 classname="wrestlers__title">Wrestlers</h1>
             <div className="wrestlers">
                 {
                     filteredWrestlers.map(wrestler => {

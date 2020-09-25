@@ -53,7 +53,7 @@ export const MessageDetails = (props) => {
     const messagesSent = messages.filter(m => {
         return (m.recieverId === clickedOnUser.id && m.userId === currentUser.id) || (m.userId === clickedOnUser.id && m.recieverId === currentUser.id)
     })
-    console.log(messagesSent)
+    const newestMessageFirst = messagesSent.reverse()
     // const messagesRecieved = messages.filter(m => {
     //     return (m.userId === clickedOnUser.id && m.recieverId === currentUser.id)
     // })
@@ -78,10 +78,10 @@ export const MessageDetails = (props) => {
 
     return (
         <>
-            <div>{clickedOnUser.name}</div>
-            <div className="events organizer">
+            <div className="messangersName">{clickedOnUser.name}</div>
+            <div className="messagesContainer">
                 {
-                    messagesSent.map(m => {
+                    newestMessageFirst.map(m => {
                     return (
                     <>
                     <Chat key={m.id} 
@@ -99,16 +99,15 @@ export const MessageDetails = (props) => {
                         <input type="text" ref={message} autoComplete="none" autoFocus className="from-control"
                             placeholder="message"
                         />
-                    </div>
-                </fieldset>
                 <button type="submit"
                     onClick={evt => {
                         evt.preventDefault()
                         newMessage()
                     }}
-                    className="btn btn-primary">
-                    Send
-        </button>
+                    className="btn btn-message">
+                    Send</button>
+                    </div>
+                </fieldset>
             </form>
         </>
     )
