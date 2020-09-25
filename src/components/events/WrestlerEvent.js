@@ -13,7 +13,7 @@ export const WrestlerEvent = ( {event, technical, history  }) => {
         <div>Looking for: {technical.type}</div>
         <button onClick={() => {
                         history.push(`/bid/${event.id}`)
-                    }} className="btn btn-primary">Bid</button>
+                    }} className="btn btn-bid">Bid</button>
     </section>
     )
 }

@@ -19,11 +19,12 @@ export const OrganizerBids = ({ userEvent, props }) => {
     
     if (!userEvent.booked && !userEvent.denied) {
     return (
-    <section className="event wrestlerBids">
+    <section className="eventBid">
         <h3>Event: {userEvent.event.name}</h3>
         <div>{userEvent.event.date}</div>
         <div>Bid: {userEvent.bid}</div>
         <div>{wrestler.name}</div>
+        <div>Online Presence: {wrestler.following}</div>
         <div>{wrestler.email}</div>
         <div>{wrestler.phoneNumber}</div>
         <div>{technicalType.type}</div>
@@ -35,7 +36,7 @@ export const OrganizerBids = ({ userEvent, props }) => {
             updateUserEventBookedStatus(userEvent)
             
         }}
-        className="btn btn-primary">
+        className="btn-accept">
             Accept
         </button>
 
@@ -46,7 +47,7 @@ export const OrganizerBids = ({ userEvent, props }) => {
             updateUserEventDeniedStatus(userEvent)
             
         }}
-        className="btn btn-primary">Deny</button>
+        className="btn-deny">Deny</button>
         
         
          <button type="submit"
@@ -55,7 +56,7 @@ export const OrganizerBids = ({ userEvent, props }) => {
             props.history.push(`/messages/${userEvent.userId}`)
             
         }}
-        className="btn btn-primary">Message</button>
+        className="btn-message-wrestler">Message</button>
 
 
     </section>
