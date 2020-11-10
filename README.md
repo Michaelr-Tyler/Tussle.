@@ -1,3 +1,6 @@
+11/09/2020 Having some issues getting old code pushed up and merged. app works, but CSS isn't quite right. Currently working on fixing these issues
+
+
 # Tussle.
 Tussle is an application built to connect indepedent wrestlers to organizers.  Organizers can create events, search wrestlers by type or name, direct message any wrestler they chose, and reject or accept any bids they recieve.  Wrestlers can browse a list of events, filter by city, state, or name, and send a bid in for a spot on the roster.  
 
