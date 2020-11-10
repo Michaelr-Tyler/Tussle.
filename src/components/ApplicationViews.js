@@ -1,24 +1,24 @@
 import React, {useContext, useEffect} from "react"
-import { Route } from "react-router-dom";
-import { UsersContext, UsersProvider } from "./users/UsersProvider";
-import { EventsList } from "./events/EventsList";
-import { EventProvider } from "./events/EventProvider";
-import { TechnicalProvider } from "./TechnicalProvider";
-import { AccountTypeProvider } from "./AccountTypeProvider";
-import { EventForm } from "./events/EventForm";
-import { WrestlerEventsList } from "./events/WrestlerEventsList";
-import { BidForm } from "./events/BidForm";
-import { UserEventProvider } from "./events/UserEventProvider";
-import { WrestlerBidList } from "./events/WrestlerBidList";
+import { Route } from "react-router-dom"
+import { UsersContext, UsersProvider } from "./users/UsersProvider"
+import { EventsList } from "./events/EventsList"
+import { EventProvider } from "./events/EventProvider"
+import { TechnicalProvider } from "./TechnicalProvider"
+import { AccountTypeProvider } from "./AccountTypeProvider"
+import { EventForm } from "./events/EventForm"
+import { WrestlerEventsList } from "./events/WrestlerEventsList"
+import { BidForm } from "./events/BidForm"
+import { UserEventProvider } from "./events/UserEventProvider"
+import { WrestlerBidList } from "./events/WrestlerBidList"
 import { WrestlerList } from "./users/WrestlerList"
-import { UserSearch } from "./users/UserSearch";
-import { OrganizerBidList } from "./events/OrganizerBidList";
-import { WrestlerMyEventsList } from "./events/WrestlerMyEventsList";
-import { MessageList } from "./messages/MessageList";
-import { MessagesProvider } from "./messages/MessageProvider";
-import { MessageDetails } from "./messages/MessageDetails";
-import { EventSearch } from "./events/EventsSearchBar";
-import { WrestlerList } from "./users/WrestlerList";
+import { WrestlerSearch } from "./users/WrestlerSearch"
+import { OrganizerBidList } from "./events/OrganizerBidList"
+import { WrestlerMyEventsList } from "./events/WrestlerMyEventsList"
+import { MessageList } from "./messages/MessageList"
+import { MessagesProvider } from "./messages/MessageProvider"
+import { MessageDetails } from "./messages/MessageDetails"
+import { EventSearch } from "./events/EventsSearchBar"
+
 
 
 
@@ -28,10 +28,10 @@ export const ApplicationViews = (props) => {
     useEffect(() => {
         getCurrentUser()
         
-        },[console.log(currentUser)])
+        },[])
 
 
-        if(currentUser.accountTypeId !== 2 && {}) {
+        if(currentUser.accountTypeId !== 2) {
     return (
         <>
         <EventProvider>
@@ -42,7 +42,7 @@ export const ApplicationViews = (props) => {
                             <MessagesProvider>
                                 <Route exact path="/" render={ props => {
                                             return <>
-                                                <UserSearch />
+                                                <WrestlerSearch />
                                                 <WrestlerList {...props} />
                                                 </>
                                                     }
