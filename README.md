@@ -1,6 +1,11 @@
 # Tussle.
 Tussle is an application built to connect indepedent wrestlers to organizers.  Organizers can create events, search wrestlers by type or name, direct message any wrestler they chose, and reject or accept any bids they recieve.  Wrestlers can browse a list of events, filter by city, state, or name, and send a bid in for a spot on the roster.  
 
+### What I learned
+1. ERD is everything. I came back to it countless times to help visualize the data flow.
+2. Naming variables and modules clear and concisley. This is something I'm working on for all future projects.
+3. Commenting and pseudo coding helps when your stuck. It also helps show where your at and where you are going when going to a lead for help.
+
 ### Requirements:
 
 NPM (https://www.npmjs.com/)
