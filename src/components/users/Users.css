@@ -1,15 +1,80 @@
-/* .wrestlers{
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Rubik&display=swap');
+
+
+.wrestlersContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.wrestlers--name{
+    font-size: 75px;
+    margin: 0 3rem 2rem auto;
+    text-align: right;
+    color: #4F4140;
+    font-family: 'Poppins', sans-serif;
+}
+.wrestlers{
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
+    justify-content: center;
+    height: 75vh;
+    overflow: scroll;
+    align-self: center;
 }
 
 .wrestler {
+    /* display: flex;
+    flex-wrap: wrap;
+    flex-direction: column; */
     border: 2px solid goldenrod;
     background-color: blanchedalmond;
     border-radius: 5px;
-    box-shadow: 3px 3px lightgray;
+    box-shadow: 3px 3px #4F4140;
     margin: 10px;
-    padding: 5px;
-    flex-basis: 25%;
+    padding: 8px;
+    flex-basis: 20%;
+    max-width: 375px;
+    height: 175px;
+    min-width: 375px;
+    min-height: 175px;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+.wrestler:hover {
+    box-shadow: 5px 4px #4F4140;
+}
+
+.searchbar{
+    display: flex;
+}
+
+.searchbar__title{
+    margin: 10px 0px 0px 10px;
+    font-family: 'Rubik', sans-serif;
+    color: #4F4140;
+}
+.searchbar__input {
+   margin-left: 15px;
+   margin-top: 10px;
+    width: 200px;
+    border: none;
+    border-radius: 2px;
+    outline: none;
+}
+
+/* .searchbar__input:hover {
+    left:9%;
+    bottom: 88.5%;
+    width: 200px;
+    border: none;
+    border-bottom: 3px solid black;
+    position: absolute;
+    outline: none;
 } */
+
+.searchbar__input[type=text]:focus{
+    border-bottom: 1px solid #4F4140;
+    border-radius: 3px;
+    transition: 35ms;
+  }

@@ -45,8 +45,8 @@ export const MessageList = () => {
     //this will create a list of users that when the name gets clicked on, will then show all the messages betweeen said users
     return (
         <>
-        <h1>Messages</h1>
-        <div className="users">
+        <h1 className="messages--title">Messages</h1>
+        <div className="messangers">
             {
                 currentUserHasContacted.map(u => {
                     return <Message 

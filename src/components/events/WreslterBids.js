@@ -1,7 +1,8 @@
 import React, { useContext } from "react"
 import { TechnicalContext } from "../TechnicalProvider"
-import "./Events.css"
 import { UserEventContext } from "./UserEventProvider"
+import  Moment  from "moment";
+import "./Events.css"
 
 export const WrestlerBid = ( {  userEvent  }) => {
     const {deleteUserEvent} = useContext(UserEventContext)
@@ -12,9 +13,9 @@ export const WrestlerBid = ( {  userEvent  }) => {
 
 if (userEvent.denied) {
     return (
-    <section className="event wrestlerMyEvents denied">
-        <h3>Presenting: {userEvent.event.name}</h3>
-        <div>{userEvent.event.date}</div>
+    <section className="denied">
+        <h3>{userEvent.event.name}</h3>
+        <div>{Moment(userEvent.event.date).format("MMM Do YYYY")}</div>
         <div>In {userEvent.event.locationCity}, {userEvent.event.locationStateCode}</div>
         <div>Looking for: {technical.type}</div>
         <div>You Bid: {userEvent.bid}</div>
@@ -34,9 +35,9 @@ if (userEvent.denied) {
      )
  } else if (!userEvent.denied) {
     return (
-    <section className="event wrestlerMyEvents">
-        <h3>Presenting: {userEvent.event.name}</h3>
-        <div>{userEvent.event.date}</div>
+    <section className="wrestlerBidEvent">
+        <h3>{userEvent.event.name}</h3>
+        <div>{Moment(userEvent.event.date).format("MMM Do YYYY")}</div>
         <div>In {userEvent.event.locationCity}, {userEvent.event.locationStateCode}</div>
         <div>Looking for: {technical.type}</div>
         <div>You Bid: {userEvent.bid}</div>

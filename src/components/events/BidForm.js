@@ -64,16 +64,16 @@ export const BidForm = (props) => {
                     defaultValue={bid.bidAmount} 
                     onChange={handleControlledInputChange}
                 />
-                </div>
-                </fieldset>
                 <button type="submit"
         onClick={evt => {
             evt.preventDefault()
             createBid()
         }}
-        className="btn btn-primary">
+        className="btn btn-bid-secondary">
             Submit Bid
         </button>
+                </div>
+                </fieldset>
         </form>
     )
 }

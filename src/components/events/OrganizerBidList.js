@@ -4,6 +4,7 @@ import { UsersContext } from "../users/UsersProvider"
 import { EventContext } from "./EventProvider"
 import { UserEventContext } from "./UserEventProvider"
 import { OrganizerBids } from "./OrganizerBid";
+import "./Events.css"
 
 
 export const OrganizerBidList = (props) => {
@@ -28,22 +29,24 @@ export const OrganizerBidList = (props) => {
 
 
     return (
-        <section className="organizerEventsContainer">
-            <h1>Bids</h1>
-            <div className="events wrestlerBids">
-                {
-                    currentUserBidEvents.map(cue => {
-                    return (
-                    <>
-                    <OrganizerBids key={cue.id} 
-                    userEvent={cue}
-                    props={props}
-                    />
-                    </>
-                    )
-                })
-                }
-            </div>
-        </section>
+        <>
+            <h2 className="organizerBids--title">Bids</h2>
+            <section className="organizerBidsContainer">
+                <div className="organizerBids">
+                    {
+                        currentUserBidEvents.map(cube => {
+                        return (
+                        <>
+                        <OrganizerBids key={cube.id} 
+                        userEvent={cube}
+                        props={props}
+                        />
+                        </>
+                        )
+                    })
+                    }
+                </div>
+            </section>
+        </>
     )
 }

@@ -2,11 +2,11 @@ import userEvent from "@testing-library/user-event"
 import React, {useContext, useEffect, useState} from "react"
 import { AccountTypeContext } from "../AccountTypeProvider"
 import { TechnicalContext } from "../TechnicalProvider"
-import { User } from "./Users"
+import { WrestlerCard } from "./Users"
 import { UsersContext } from "./UsersProvider"
 
 
-export const UserList = (props) => {
+export const WrestlerList = (props) => {
     const {users, getUsers, searchTerms} = useContext(UsersContext)
     const {technicals, getTechnicals} = useContext(TechnicalContext)
 
@@ -42,14 +42,14 @@ export const UserList = (props) => {
 
     return (
         <section className="wrestlersContainer">
-            <h1>Wrestlers</h1>
-            <div className="wrestlers">
+            <h1 className="wrestlers--name">Wrestlers</h1>
+                <div className="wrestlers">
                 {
                     filteredWrestlers.map(wrestler => {
                     const type = technicals.find(t => t.id === wrestler.technicalId) || {}
                         return (
                             <>
-                            <User key={wrestler.id} 
+                            <WrestlerCard key={wrestler.id} 
                             user={wrestler}
                             technical={type}
                             props={props}
@@ -59,7 +59,7 @@ export const UserList = (props) => {
                         )
                     })
                 }
-            </div>
+                </div>
         </section>
     )   
 }

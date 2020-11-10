@@ -10,13 +10,15 @@ import { WrestlerEventsList } from "./events/WrestlerEventsList";
 import { BidForm } from "./events/BidForm";
 import { UserEventProvider } from "./events/UserEventProvider";
 import { WrestlerBidList } from "./events/WrestlerBidList";
-import { UserList } from "./users/UserList"
+import { WrestlerList } from "./users/WrestlerList"
 import { UserSearch } from "./users/UserSearch";
 import { OrganizerBidList } from "./events/OrganizerBidList";
 import { WrestlerMyEventsList } from "./events/WrestlerMyEventsList";
 import { MessageList } from "./messages/MessageList";
 import { MessagesProvider } from "./messages/MessageProvider";
 import { MessageDetails } from "./messages/MessageDetails";
+import { EventSearch } from "./events/EventsSearchBar";
+import { WrestlerList } from "./users/WrestlerList";
 
 
 
@@ -41,7 +43,7 @@ export const ApplicationViews = (props) => {
                                 <Route exact path="/" render={ props => {
                                             return <>
                                                 <UserSearch />
-                                                <UserList {...props} />
+                                                <WrestlerList {...props} />
                                                 </>
                                                     }
                                                 } />
@@ -88,6 +90,7 @@ export const ApplicationViews = (props) => {
                             <MessagesProvider>
                                         <Route exact path="/" render={ props => {
                                                     return <>
+                                                        <EventSearch />
                                                         <WrestlerEventsList {...props} />
                                                     </>
                                                 }

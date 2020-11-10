@@ -1,13 +1,13 @@
 import React, { useContext } from "react"
-import { UsersContext } from "./UsersProvider"
+import { EventContext } from "./EventProvider"
 
-export const WrestlerSearch = () => {
-    const { setTerms } = useContext(UsersContext)
+export const EventSearch = () => {
+    const { setTerms } = useContext(EventContext)
 
     return (
         <>
-        <section className="searchbar">
-            <div className="searchbar__title">Search Wrestlers</div>
+        <section className="searchbar-event">
+            <div className="searchbar__title">Search City, State, or event name.</div>
             <input type="text"
                 onChange={
                     (changeEvent) => {
@@ -15,7 +15,7 @@ export const WrestlerSearch = () => {
                     }
                 }
                 className="searchbar__input"
-                placeholder="Enter wrestlers name or type..." />
+                placeholder="Enter city, state abbreviation, or Name..." />
         </section>
         </>
     )

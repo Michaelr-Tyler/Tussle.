@@ -1,6 +1,7 @@
 import React, {useContext, useState, useEffect} from "react"
 import { EventContext } from "./EventProvider"
 import { TechnicalContext } from "../TechnicalProvider"
+import "./Events.css"
 
 
 export const EventForm = (props) => {
@@ -50,8 +51,9 @@ const createNewEvent = () => {
             date: show.date,
             locationCity: show.locationCity,
             locationStateCode: show.locationStateCode,
+            attendance: show.attendance,
             technicalId: parseInt(show.technicalId),
-            userId: parseInt(localStorage.getItem("tussle_user"))
+            userId: parseInt(sessionStorage.getItem("tussle_user"))
 
         })
         .then(() => props.history.push("/events"))
@@ -61,8 +63,9 @@ const createNewEvent = () => {
             date: show.date,
             locationCity: show.locationCity,
             locationStateCode: show.locationStateCode,
+            attendance: show.attendance,
             technicalId: parseInt(show.technicalId),
-            userId: parseInt(localStorage.getItem("tussle_user"))
+            userId: parseInt(sessionStorage.getItem("tussle_user"))
 
         })
         .then(() => props.history.push("/events"))
@@ -74,9 +77,9 @@ return (
     <form className="eventForm">
         <h2 className="eventForm__title">{editMode ? "Update Event" : "New Event"}</h2>
         <fieldset>
-            <div className="form-group">
+            <div className="event-group">
                 <label htmlFor="eventName">Event Name:</label>
-                <input type="text" name="name" autocomplete="none" required autoFocus className="form-control" 
+                <input type="text" name="name" autoComplete="none" required autoFocus className="eventForm-control" 
                 proptype="varchar"
                 placeholder="Event Name"
                 defaultValue={show.name}
@@ -85,11 +88,23 @@ return (
             </div>
         </fieldset>
         <fieldset>
-            <div className="form-group">
-                <label htmlFor="locationCity">Event city:</label>
-                <input type="text"  name="locationCity" required autoFocus className="form-control" 
+            <div className="event-group">
+                <label htmlFor="attendance">Attending: </label>
+                <input type="text"  name="attendance" required autoFocus className="eventForm-control" 
                 proptype="varchar"
-                placeholder="Event City"
+                placeholder="Attendance"
+                defaultValue={show.attendance} 
+                onChange={handleControlledInputChange}
+                />
+                
+            </div>
+        </fieldset>
+        <fieldset>
+            <div className="event-group">
+                <label htmlFor="locationCity">Event city:</label>
+                <input type="text"  name="locationCity" required autoFocus className="eventForm-control" 
+                proptype="varchar"
+                placeholder="City"
                 defaultValue={show.locationCity} 
                 onChange={handleControlledInputChange}
                 />
@@ -97,9 +112,9 @@ return (
             </div>
         </fieldset>
         <fieldset>
-            <div className="form-group">
+            <div className="event-group">
                 <label htmlFor="locationStateCode">Event state code:</label>
-                <input type="text" name="locationStateCode" required autoFocus className="form-control" 
+                <input type="text" name="locationStateCode" required autoFocus className="eventForm-control" 
                 proptype="varchar"
                 placeholder="State abbreviation" 
                 defaultValue={show.locationStateCode} 
@@ -108,9 +123,9 @@ return (
             </div>
         </fieldset>
         <fieldset>
-            <div className="form-group">
+            <div className="event-group">
                 <label htmlFor="date">When: </label>
-                <input type="date" name="date" valueAsNumber required autoFocus className="form-control" 
+                <input type="date" name="date" required autoFocus  className="eventForm-control" 
                 proptype="int"
                 defaultValue={show.date}
                 onChange={handleControlledInputChange}
@@ -118,9 +133,9 @@ return (
             </div>
         </fieldset>
         <fieldset>
-                <div className="form-group">
+                <div className="event-group">
                     <label htmlFor="technical">Technical type: </label>
-                    <select name="technicalId" className="form-control"
+                    <select name="technicalId" className="eventForm-control"
                     proptype="int"
                     value={show.technicalId}
                     onChange={handleControlledInputChange}
@@ -139,7 +154,7 @@ return (
             evt.preventDefault()
             createNewEvent()
         }}
-        className="btn btn-primary">
+        className="btn btn-save">
             {editMode ? "Update event" : "Save event"}
         </button>
     </form>
