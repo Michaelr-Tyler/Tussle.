@@ -51,7 +51,7 @@ const createNewEvent = () => {
             locationCity: show.locationCity,
             locationStateCode: show.locationStateCode,
             technicalId: parseInt(show.technicalId),
-            userId: parseInt(localStorage.getItem("tussle_user"))
+            userId: parseInt(sessionStorage.getItem("tussle_user"))
 
         })
         .then(() => props.history.push("/events"))
@@ -62,7 +62,7 @@ const createNewEvent = () => {
             locationCity: show.locationCity,
             locationStateCode: show.locationStateCode,
             technicalId: parseInt(show.technicalId),
-            userId: parseInt(localStorage.getItem("tussle_user"))
+            userId: parseInt(sessionStorage.getItem("tussle_user"))
 
         })
         .then(() => props.history.push("/events"))

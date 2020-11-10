@@ -28,7 +28,7 @@ export const WrestlerBidList = ({history}) => {
     console.log(currentUserEvents)
 
     return (
-        <section className="organizerEventsContainer">
+        <section className="wrestlerBidsContainer">
             <h1>Bids</h1>
             <div className="events wrestlerMyEvent">
                 {

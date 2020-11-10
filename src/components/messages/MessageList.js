@@ -46,7 +46,7 @@ export const MessageList = () => {
     return (
         <>
         <h1>Messages</h1>
-        <div className="users">
+        <div className="messangers">
             {
                 currentUserHasContacted.map(u => {
                     return <Message 

@@ -6,6 +6,7 @@ export const UserSearch = () => {
 
     return (
         <>
+        <div className="searchContainer">
             <div>Search Wrestlers</div>
             <input type="text"
                 onChange={
@@ -13,7 +14,8 @@ export const UserSearch = () => {
                         setTerms(changeEvent.target.value)
                     }
                 }
-                placeholder="Enter search string here..." />
+                placeholder="Search by type or name..." />
+        </div>
         </>
     )
 }

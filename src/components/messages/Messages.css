@@ -1,0 +1,103 @@
+.messangers {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: 500px;
+    overflow: scroll;
+}
+
+.messenger {
+    font-size: 30px;
+    border: 2px solid #4F4140;
+    border-radius: 6px;
+    margin: 25px 0px 25px 60px;
+    background-color: #BFD1E5;
+    max-width: 500px;
+    max-height: 100px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    text-align: end;
+    padding-right: 50px;
+
+}
+.user__name a {
+    text-decoration: none;
+    color: #4F4140;
+}
+
+.user a:hover{
+    border-radius: 3px;
+}
+
+.messagesContainer{
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    overflow: auto;
+    border: 2px solid #4F4140;
+    border-radius: 10px;
+    max-width: 700px;
+    margin-right: auto;
+    margin-left: 70px;
+    background-color: #BFD1E5;
+    box-shadow: 2px 3px #878993;
+}
+
+.messageFieldset {
+    /* display: flex; */
+    margin-top: 20px;
+    margin-left: 300px;
+}
+
+.btn-message { 
+    width: 50px;
+    margin-left: 130px;
+
+
+}
+
+.sender{
+    margin-left: auto;
+    margin-right: 20px;
+    color: #4F4140;
+}
+
+.sender__name {
+    text-align: end;
+    font-size: 20px;
+    
+}
+
+.sender__message{
+    background-color: honeydew;
+    border: 2px solid;
+    padding: 3px;
+    border-radius: 10px;
+    text-align: end;
+    margin-bottom: 5px;
+}
+
+.reciever{
+    margin-right: auto;
+    margin-left: 20px;
+    color: #4F4140;
+}
+
+.reciever__name {
+    font-size: 20px;
+}
+
+.reciever__message {
+    background-color: honeydew;
+    border: 2px solid;
+    padding: 3px;
+    border-radius: 10px;
+    text-align: start;
+    margin-bottom: 5px;
+}
+
+.messangersName {
+    font-size: 50px;
+    margin-left: 70px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}

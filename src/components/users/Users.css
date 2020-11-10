@@ -1,15 +1,50 @@
-/* .wrestlers{
+.wrestlersContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.wrestlers{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    justify-content: flex-end;
+    max-width: 1200px;
+    height: 500px;
+    overflow: scroll;
 }
 
 .wrestler {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
     border: 2px solid goldenrod;
     background-color: blanchedalmond;
     border-radius: 5px;
-    box-shadow: 3px 3px lightgray;
+    box-shadow: 3px 3px #4F4140;
     margin: 10px;
     padding: 5px;
-    flex-basis: 25%;
-} */
+    flex-basis: 30%;
+    height: 150px;
+    width: 200px;
+    min-height: 150px;
+    min-width: 200px;
+}
+
+.wrestler.btn {
+    max-width: 700px;
+}
+
+.wrestler__email{
+    display: inline;
+}
+
+.searchContainer {
+    margin: 10px 50px;
+
+}
+
+.wrestler__title {
+    align-self: right;
+    margin-left: auto;
+    font-size: 5rem;
+}

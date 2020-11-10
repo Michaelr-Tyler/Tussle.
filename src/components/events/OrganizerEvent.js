@@ -17,12 +17,12 @@ export const OrganizerEvent = ({ event, technical, history }) => {
         <button
         onClick={
             ()=> deleteEvent(event.id || {})
-        }>
+        } className="btn btn-nonPrimary">
             Delete Event
         </button>
         <button onClick={() => {
                         history.push(`/events/edit/${event.id}`)
-                    }} className="btn btn-primary">Edit</button>
+                    }} className="btn btn-nonPrimary">Edit</button>
     </section>
     )
 }
