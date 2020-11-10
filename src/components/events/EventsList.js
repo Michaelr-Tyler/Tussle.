@@ -28,9 +28,17 @@ export const EventsList = ({history}) => {
 
 
     return (
+        <>
+        <h1 className="organizerEvent--title">My Events</h1>
+
+            <div className="buttonContainer">
+            <button className="button--newEvent" onClick={() => history.push("/events/create")}
+            >
+                Create New Event
+            </button>
+            </div>
         <section className="organizerEventsContainer">
-            <h1>My Events</h1>
-            <div className="events organizer">
+            <div className="organizer--events">
                 {
                     currentUserEvents.map(event => {
                     const type = technicals.find(t => t.id === event.technicalId) || {}
@@ -45,10 +53,9 @@ export const EventsList = ({history}) => {
                 })
                 }
             </div>
-            <button onClick={() => history.push("/events/create")}>
-                New Event
-            </button>
+            
         </section>
+        </>
     )
 
 }

@@ -71,7 +71,7 @@ export const BidForm = (props) => {
             evt.preventDefault()
             createBid()
         }}
-        className="btn btn-primary">
+        className="btn btn-bid-secondary">
             Submit Bid
         </button>
         </form>

@@ -74,7 +74,7 @@ return (
     <form className="eventForm">
         <h2 className="eventForm__title">{editMode ? "Update Event" : "New Event"}</h2>
         <fieldset>
-            <div className="form-group">
+            <div className="event-group">
                 <label htmlFor="eventName">Event Name:</label>
                 <input type="text" name="name" autocomplete="none" required autoFocus className="form-control" 
                 proptype="varchar"
@@ -85,7 +85,7 @@ return (
             </div>
         </fieldset>
         <fieldset>
-            <div className="form-group">
+            <div className="event-group">
                 <label htmlFor="locationCity">Event city:</label>
                 <input type="text"  name="locationCity" required autoFocus className="form-control" 
                 proptype="varchar"
@@ -97,7 +97,7 @@ return (
             </div>
         </fieldset>
         <fieldset>
-            <div className="form-group">
+            <div className="event-group">
                 <label htmlFor="locationStateCode">Event state code:</label>
                 <input type="text" name="locationStateCode" required autoFocus className="form-control" 
                 proptype="varchar"
@@ -108,7 +108,7 @@ return (
             </div>
         </fieldset>
         <fieldset>
-            <div className="form-group">
+            <div className="event-group">
                 <label htmlFor="date">When: </label>
                 <input type="date" name="date" valueAsNumber required autoFocus className="form-control" 
                 proptype="int"
@@ -118,7 +118,7 @@ return (
             </div>
         </fieldset>
         <fieldset>
-                <div className="form-group">
+                <div className="event-group">
                     <label htmlFor="technical">Technical type: </label>
                     <select name="technicalId" className="form-control"
                     proptype="int"
@@ -139,7 +139,7 @@ return (
             evt.preventDefault()
             createNewEvent()
         }}
-        className="btn btn-primary">
+        className="btn btn-save">
             {editMode ? "Update event" : "Save event"}
         </button>
     </form>
