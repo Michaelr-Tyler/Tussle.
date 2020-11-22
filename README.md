@@ -1,4 +1,4 @@
-11/09/2020 Having some issues getting old code pushed up and merged. app works, but CSS isn't quite right. Currently working on fixing these issues
+
 
 
 # Tussle.
