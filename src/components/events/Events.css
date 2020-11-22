@@ -1,70 +1,171 @@
-.organizerEventsContainer{
-    display: flex;
-    flex-direction: column;
-}
-.btn-primary {
-    width: 125px;
-    height: 40px;
-    margin-left: auto;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Rubik&display=swap');
+
+.buttonContainer {
+    text-align: end;
     margin-right: 100px;
-    background-color: lightgray;
 }
-.btn-primary:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+
+.eventForm__title {
+    font-size: 50px;
+    margin: 10px 0 20px 0;
+    text-align: center;
+    color: #4F4140;
+    font-family: 'Poppins', sans-serif;
 }
- .events {
+
+.eventForm-control{
+    display: flex;
+    justify-content: end;
+    /* text-align: end; */
+}
+
+
+.eventForm {
     display: flex;
     flex-direction: column;
-    overflow: scroll;
-    margin-left: auto;
-    margin-right: auto;
-    height: 70vh;
+    width: 600px;
+    margin:0px auto 0px auto;
+    text-align: center;
+    /* justify-content: end; */
+    /* font-family: 'Poppins', sans-serif;     */
 }
 
-.event, .eventBid {
-    border: 2px solid goldenrod;
-    border-radius: 5px;
-    background-color:  blanchedalmond;
-    box-shadow: 4px 4px  #4F4140;
-    width: 750px;
-    max-height: 250px;
-    margin: 10px 5px;
-    padding: 5px;
+fieldset {
+    border: none;
 }
 
-.denied {
-    background-color: #4F4140;
-    padding:10px;
-} 
+select.eventForm-control {
+    width: 200px;
+    margin: 3px auto;
+}
 
-.btn-nonPrimary{
-    margin:0px 5px;
+input.eventForm-control {
+    width: 200px;
+    
+}
+
+.btn-save{
     width: 100px;
+    margin: 3px 100px 0px auto;
+    border-radius: 3px;
+    transition: 500ms;
+    
 }
 
-.organizerBidsContainer {
-    display: flex;
-    flex-direction: column;
+.btn-save:hover {
+    box-shadow: 2px 1px black;
+    transition: 250ms;
+}
+
+.organizerEvent--title, .eventsPage--title, .wrestlerMyEvents--title{
+    font-size: 75px;
+    color: #4F4140;
+    text-align: end;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    font-family: 'Poppins', sans-serif;
+
+}
+.wrestlerBids--title, .organizerBids--title{ 
+    font-size: 75px;
+    color: #4F4140;
     text-align: start;
-}
-.organizerBids__title {
-    margin-right: auto;
-    margin-left: 5px;
-    font-size: 110px;
-}
-
-.eventBids {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    overflow: scroll;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-.btn-accept, .btn-deny, .btn-message-wrestler, .btn-bid, .btn-bid-secondary {
-    width: 100px;
+    margin-top: 10px;
+    margin-bottom: 20px;
     margin-left: 20px;
+    font-family: 'Poppins', sans-serif;
 }
 
+.organizerEventsContainer, .wrestlerEventsContainer, .wrestlerBidsContainer, .wrestlerMyEventsContainer, .organizerBidsContainer{
+    text-align: center;
+    height: 75vh;
+    width: 100%;
+    overflow: auto;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+}
+
+.organizer--events, .wrestlerEvents, .wrestlerBidEvents, .wrestlerMyEvents, .organizerBids{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    margin-left: 100px;
+    /* height: 75vh; */
+    /* overflow: scroll; */
+
+}
+
+.organizerEvent, .wrestlerEvent, .wrestlerBidEvent, .wrestlerMyEvent { 
+    border: 2px solid goldenrod;
+    background-color: blanchedalmond;
+    border-radius: 5px;
+    box-shadow: 3px 3px #4F4140;
+    margin: 10px;
+    max-width: 375px;
+    height: 175px;
+    min-width: 375px;
+    min-height: 200px;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+    
+}
+
+.organizerBid{ 
+    border: 2px solid goldenrod;
+    background-color: blanchedalmond;
+    border-radius: 5px;
+    box-shadow: 3px 3px #4F4140;
+    margin: 10px;
+    max-width: 375px;
+    height: 225px;
+    min-width: 375px;
+    min-height: 225px;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+.denied { 
+    border: 2px solid #afbac0;
+    background-color: #707c85;
+    border-radius: 5px;
+    box-shadow: 3px 3px #8b939c;
+    margin: 10px;
+    max-width: 375px;
+    height: 175px;
+    min-width: 375px;
+    min-height: 200px;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+    
+}
+
+.btn-delete, .btn-edit, .btn-bid, .btn-accept, .btn-deny, .btn-message-wrestler {
+    width: 100px;
+    margin: 4px 10px 3px 0px;
+    border: 1px solid black;
+    border-radius: 3px;
+    transition: 500ms;
+    
+}
+
+.btn-delete:hover, .btn-edit:hover, .btn-bid:hover, .btn-accept:hover, .btn-deny:hover, .btn-message-wrestler:hover {
+    box-shadow: 2px 1px black;
+    transition: 150ms;
+}
+
+.searchbar-event{
+    display: flex;
+}
+
+.searchbar__title{
+    margin: 10px 0px 0px 10px;
+    font-family: 'Rubik', sans-serif;
+    color: #4F4140;
+}
+
+.searchbar-event input {
+    width:250px;
+}
