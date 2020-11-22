@@ -72,8 +72,8 @@ const {technicals, getTechnicals} = useContext(TechnicalContext)
             </dialog>
 
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Tussle Registration</h1>
-                <fieldset>
+            <h1 className="form--title">Tussle Registration</h1>
+                <fieldset className="login">
                     <label htmlFor="name"> Name </label>
                     <input ref={Name} type="text"
                         name="name"
@@ -81,7 +81,7 @@ const {technicals, getTechnicals} = useContext(TechnicalContext)
                         placeholder="Name"
                         required autoFocus />
                 </fieldset>
-                <fieldset>
+                <fieldset className="login">
                     <label htmlFor="lastName"> Phone Number </label>
                     <input ref={phoneNumber} type="text"
                         name="phoneNumber"
@@ -89,7 +89,7 @@ const {technicals, getTechnicals} = useContext(TechnicalContext)
                         placeholder="Number"
                         required />
                 </fieldset>
-                <fieldset>
+                <fieldset className="login">
                     <label htmlFor="lastName"> Online Presence </label>
                     <input ref={following} type="text"
                         name="following"
@@ -97,7 +97,7 @@ const {technicals, getTechnicals} = useContext(TechnicalContext)
                         placeholder="Number"
                         required />
                 </fieldset>
-                <fieldset>
+                <fieldset className="login">
                 <div className="form-control">
                     <label htmlFor="accountType">Account Type </label>
                     <select defaultValue="" name="accountType" ref={accountType} id="accountType" className="form-control" >
@@ -110,7 +110,7 @@ const {technicals, getTechnicals} = useContext(TechnicalContext)
                     </select>
                 </div>
             </fieldset>
-            <fieldset>
+            <fieldset className="login">
                 <div className="form-control">
                     <label htmlFor="technicalType">Technical </label>
                     <select defaultValue="" name="technicalType" ref={technical} id="technicalType" className="form-control" >
@@ -123,7 +123,7 @@ const {technicals, getTechnicals} = useContext(TechnicalContext)
                     </select>
                 </div>
             </fieldset>
-                <fieldset>
+                <fieldset className="login">
                     <label htmlFor="inputEmail"> Email address </label>
                     <input ref={email} type="email"
                         name="email"
@@ -132,7 +132,7 @@ const {technicals, getTechnicals} = useContext(TechnicalContext)
                         placeholder="Email address"
                         required />
                 </fieldset>
-                <fieldset>
+                <fieldset className="login">
                     <label htmlFor="inputPassword"> Password </label>
                     <input ref={password} type="password"
                         name="password"
@@ -141,7 +141,7 @@ const {technicals, getTechnicals} = useContext(TechnicalContext)
                         placeholder="Password"
                         required />
                 </fieldset>
-                <fieldset>
+                <fieldset className="login">
                     <label htmlFor="verifyPassword"> Verify Password </label>
                     <input ref={verifyPassword} type="password"
                         name="verifyPassword"
@@ -149,11 +149,13 @@ const {technicals, getTechnicals} = useContext(TechnicalContext)
                         placeholder="Verify password"
                         required />
                 </fieldset>
-                <fieldset>
+                <div className="register-button">
+                <fieldset className="signIn--register">
                     <button type="submit">
                         Register
                     </button>
                 </fieldset>
+                </div>
             </form>
         </main>
     )

@@ -45,7 +45,7 @@ export const Login = props => {
                 <form className="form--login" onSubmit={handleLogin}>
                     <h1 className="form--title">Tussle.</h1>
                     <h2 className="form--text">Please sign in</h2>
-                    <fieldset>
+                    <fieldset className="login">
                         <label htmlFor="inputEmail"> Email Address </label>
                         <input ref={email} type="email"
                             id="email"
@@ -54,7 +54,7 @@ export const Login = props => {
                             placeholder="E-mail"
                             required autoFocus />
                     </fieldset>
-                    <fieldset>
+                    <fieldset className="login">
                         <label htmlFor="inputPassword"> Password </label>
                         <input ref={password} type="password"
                             id="password"
