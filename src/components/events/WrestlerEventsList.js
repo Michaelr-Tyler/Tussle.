@@ -3,6 +3,7 @@ import { EventContext } from "./EventProvider"
 import { WrestlerEvent } from "./WrestlerEvent"
 import { TechnicalContext } from "../TechnicalProvider"
 import "./Events.css"
+import { EventSearch } from "./EventsSearchBar"
 
 export const WrestlerEventsList = ({history}) => {
     const {events, getEvents, searchTerms} = useContext(EventContext)
@@ -31,6 +32,7 @@ export const WrestlerEventsList = ({history}) => {
 
     return (
     <>
+        <EventSearch />
         <h1 className="eventsPage--title">Events</h1>
         <section className="wrestlerEventsContainer">
             <div className="wrestlerEvents">
