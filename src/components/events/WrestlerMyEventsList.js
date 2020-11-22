@@ -28,9 +28,10 @@ export const WrestlerMyEventsList = (props) => {
     console.log(currentUserEvents)
 
     return (
-        <section className="organizerEventsContainer">
-            <h1>My Events</h1>
-            <div className="events wrestlerMyEvent">
+    <>
+        <h1 className="wrestlerMyEvents--title">My Events</h1>
+        <section className="wrestlerMyEventsContainer">
+            <div className="wrestlerMyEvents">
                 {
                     currentUserEvents.map(cue => {
                     return (
@@ -44,6 +45,7 @@ export const WrestlerMyEventsList = (props) => {
                 }
             </div>
         </section>
+    </>
     )
 
 }

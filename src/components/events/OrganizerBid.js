@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { UserEventContext } from "./UserEventProvider"
 import { UsersContext } from "../users/UsersProvider"
 import { TechnicalContext } from "../TechnicalProvider"
+import Moment from 'moment'
 import "./Events.css"
 
 export const OrganizerBids = ({ userEvent, props }) => {
@@ -19,9 +20,9 @@ export const OrganizerBids = ({ userEvent, props }) => {
     
     if (!userEvent.booked && !userEvent.denied) {
     return (
-    <section className="eventBid">
+    <section className="organizerBid">
         <h3>Event: {userEvent.event.name}</h3>
-        <div>{userEvent.event.date}</div>
+        <div>{Moment(userEvent.event.date).format("MMM Do YYYY")}</div>
         <div>Bid: {userEvent.bid}</div>
         <div>{wrestler.name}</div>
         <div>Online Presence: {wrestler.following}</div>

@@ -28,9 +28,10 @@ export const WrestlerBidList = ({history}) => {
     console.log(currentUserEvents)
 
     return (
+        <>
+        <h1 className="wrestlerBids--title">Bids</h1>
         <section className="wrestlerBidsContainer">
-            <h1>Bids</h1>
-            <div className="events wrestlerMyEvent">
+            <div className="wrestlerBidEvents">
                 {
                     currentUserEvents.map(cue => {
                     return (
@@ -43,6 +44,7 @@ export const WrestlerBidList = ({history}) => {
                 }
             </div>
         </section>
+        </>
     )
 
 }

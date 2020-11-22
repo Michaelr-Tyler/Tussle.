@@ -29,22 +29,24 @@ export const OrganizerBidList = (props) => {
 
 
     return (
-        <section className="organizerBidsContainer">
-            <h2 className="organizerBids__title">Bids</h2>
-            <div className="eventBids">
-                {
-                    currentUserBidEvents.map(cue => {
-                    return (
-                    <>
-                    <OrganizerBids key={cue.id} 
-                    userEvent={cue}
-                    props={props}
-                    />
-                    </>
-                    )
-                })
-                }
-            </div>
-        </section>
+        <>
+            <h2 className="organizerBids--title">Bids</h2>
+            <section className="organizerBidsContainer">
+                <div className="organizerBids">
+                    {
+                        currentUserBidEvents.map(cube => {
+                        return (
+                        <>
+                        <OrganizerBids key={cube.id} 
+                        userEvent={cube}
+                        props={props}
+                        />
+                        </>
+                        )
+                    })
+                    }
+                </div>
+            </section>
+        </>
     )
 }
