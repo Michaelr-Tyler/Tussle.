@@ -30,4 +30,4 @@ In the previous terminal window, run `npm start` to start the react app
 When the browser opens register an account as a wrestler to bid on events and/or 
 register as an organizer to create events, message wrestlers, and except bid offers!
 
-![screen capture](src/images/ERDimage.png)
+![screen capture](images/ERDimage.png)
