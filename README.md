@@ -1,10 +1,10 @@
 
 This repository has only been updated recently for some CSS bug fixes. After finishing my fullstack capstone I will be revisiting this project to refactor. I've learned so much more, and really started to comprhend larger concepts of react. Some things I'd like to change in this include
-- [ ] decoupling a few components
-- [ ] abstracting logic from reusable components passing through props
-- [ ] and documenting my work
+- [ ] Decoupling a few components
+- [ ] Abstracting logic from reusable components passing through props
+- [ ] Documenting my work
 - [ ] Handle rendering through state fora better user experience (ie: loading screens, spinners, etc)
-- [ ] and more ...
+- [ ] And more ...
 Thank you,
 Michael Tyler 12/12/20
 
