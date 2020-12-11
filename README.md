@@ -1,5 +1,12 @@
 
-
+This repository has only been updated recently for some CSS bug fixes. After finishing my fullstack capstone I will be revisiting this project to refactor. I've learned so much more, and really started to comprhend larger concepts of react. Some things I'd like to change in this include
+- [ ] decoupling a few components
+- [ ] abstracting logic from reusable components passing through props
+- [ ] and documenting my work
+- [ ] Handle rendering through state fora better user experience (ie: loading screens, spinners, etc)
+- [ ] and more ...
+Thank you,
+Michael Tyler 12/12/20
 
 # Tussle.
 Tussle is an application built to connect indepedent wrestlers to organizers.  Organizers can create events, search wrestlers by type or name, direct message any wrestler they chose, and reject or accept any bids they recieve.  Wrestlers can browse a list of events, filter by city, state, or name, and send a bid in for a spot on the roster.  
