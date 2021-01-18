@@ -38,18 +38,18 @@ When the browser opens register an account as a wrestler to bid on events and/or
 register as an organizer to create events, message wrestlers, and except bid offers!
 
 
-| <img src=".images/ERDScreenshot.png"> |
+| <img src="./images/ERDScreenshot.png"> |
 | :---: |
 | Entity Relationship Diagram |
 
-| <img src=".images/WireframeMain.jpg"> |
+| <img src="./images/wireframeMain.jpg"> |
 | :---: |
 | Wireframe Main |
 
-| <img src=".images/WireframeOrganizer.jpg"> |
+| <img src="./images/WireframeOrganizers.jpg"> |
 | :---: |
 | Wireframe Organizers |
 
-| <img src=".images/WireframeWrestler.jpg"> |
+| <img src="./images/WireframeWrestlers.jpg"> |
 | :---: |
 | Wireframe Wrestlers |
