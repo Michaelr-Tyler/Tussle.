@@ -1,12 +1,13 @@
-import React, { useContext, useEffect, useState } from "react"
-import { EventContext } from "./EventProvider"  
-import { OrganizerEvent } from "./OrganizerEvent"
-import { UsersContext } from "../users/UsersProvider"
-import { TechnicalContext } from "../TechnicalProvider"
-import "./Events.css"
+import React, { useContext, useEffect } from "react";
+import { EventContext } from "./EventProvider";
+import { EventCard } from "../utils/EventCard";
+import { Button } from "../utils/Button";
+import { UsersContext } from "../users/UsersProvider";
+import { TechnicalContext } from "../TechnicalProvider";
+import "./Events.css";
 
-export const EventsList = ({history}) => {
-    const {events, getEvents} = useContext(EventContext)
+export const EventsList = (props) => {
+    const {events, getEvents, deleteEvent} = useContext(EventContext)
     const {technicals, getTechnicals } = useContext(TechnicalContext)
     const {currentUser, getCurrentUser} = useContext(UsersContext)
     
@@ -32,7 +33,7 @@ export const EventsList = ({history}) => {
         <h1 className="organizerEvent--title">My Events</h1>
 
             <div className="buttonContainer">
-            <button className="button--newEvent" onClick={() => history.push("/events/create")}
+            <button className="button--newEvent" onClick={() => props.history.push("/events/create")}
             >
                 Create New Event
             </button>
@@ -43,12 +44,15 @@ export const EventsList = ({history}) => {
                     currentUserEvents.map(event => {
                     const type = technicals.find(t => t.id === event.technicalId) || {}
                     return (
-                    <>
-                    <OrganizerEvent key={event.id} 
+                    <div key={event.id}>
+                    <EventCard 
                     event={event}
-                    history={history}
                     technical = {type} />
-                    </>
+                    <Button label={"Edit Event"} 
+                    onClick={()=> props.history.push(`/events/edit/${event.id}`)} />
+                    <Button label={"Delete Event"}
+                    onClick={()=> deleteEvent(event.id)} />
+                    </div>
                     )
                 })
                 }
