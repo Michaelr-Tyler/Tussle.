@@ -9,6 +9,7 @@ export const UserSearch = () => {
         <div className="searchContainer">
             <div>Search Wrestlers</div>
             <input type="text"
+            className="inputsearch"
                 onChange={
                     (changeEvent) => {
                         setTerms(changeEvent.target.value)

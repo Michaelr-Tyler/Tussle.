@@ -161,11 +161,17 @@ input.eventForm-control {
 }
 
 .searchbar__title{
+    
     margin: 10px 0px 0px 10px;
     font-family: 'Rubik', sans-serif;
     color: #4F4140;
 }
 
-.searchbar-event input {
-    width:250px;
+input.searchbar__input{
+    margin-right: 650px;
+    width: 350px
+}
+
+.inputsearch{
+    width: 250px;
 }
