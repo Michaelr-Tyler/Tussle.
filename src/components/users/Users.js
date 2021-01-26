@@ -1,21 +1,14 @@
 import React from "react"
 import "./Users.css";
 
-export const User = ({user, technical, props}) => {
+export const User = (props) => {
     return (
-    <section className="wrestler">
-        <h4>{user.name}</h4>
-        <div>Online Presence:{user.following}</div>
-        <div>{user.phoneNumber}</div>
-        <div className="wrestler__email">{user.email}</div>
-        <div>{technical.type}</div>
-        <button type="submit"
-        onClick={evt => {
-            evt.preventDefault()
-            props.history.push(`/messages/${user.id}`)
-            
-        }}
-        className="btn btn-nonPrimary">Message</button>
+    <section>
+        <h4>{props.user.name}</h4>
+        <div>Online Presence:{props.user.following}</div>
+        <div>{props.user.phoneNumber}</div>
+        <div>{props.user.email}</div>
+        <div>{props.technical.type}</div>
     </section>
     )
 }

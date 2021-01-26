@@ -2,6 +2,7 @@ import userEvent from "@testing-library/user-event"
 import React, {useContext, useEffect, useState} from "react"
 import { AccountTypeContext } from "../AccountTypeProvider"
 import { TechnicalContext } from "../TechnicalProvider"
+import { Button } from "../utils/Button"
 import { User } from "./Users"
 import { UsersContext } from "./UsersProvider"
 
@@ -25,12 +26,6 @@ export const UserList = (props) => {
         const matchingUsers = wrestlersOnly.filter(user => (user.name.toLowerCase().includes(searchTerms.toLowerCase())) || (user.technical.type.toLowerCase().includes(searchTerms.toLowerCase())))
         setFiltered(matchingUsers)
      }, [searchTerms])
-
-    //  useEffect(() => {
-    //     const wrestlersOnly = users.filter(u => u.accountTypeId === 2)
-    //     const matchingUsersByType = wrestlersOnly.filter(user => (user.technical.type.toLowerCase().includes(searchTerms.toLowerCase())))
-    //     setFiltered(matchingUsersByType)
-    //  }, [searchTerms])
  
  
      useEffect(() => {
@@ -41,21 +36,22 @@ export const UserList = (props) => {
 
 
     return (
-        <section className="wrestlersContainer">
-            <h1 classname="wrestlers__title">Wrestlers</h1>
-            <div className="wrestlers">
+        <section className="usersContainer">
+            <h1 classname="users__title">Wrestlers</h1>
+            <div className="users">
                 {
                     filteredWrestlers.map(wrestler => {
                     const type = technicals.find(t => t.id === wrestler.technicalId) || {}
                         return (
-                            <>
+                            <div className="user">
                             <User key={wrestler.id} 
                             user={wrestler}
                             technical={type}
                             props={props}
                              />
-
-                            </>
+                             <Button label={'message'} 
+                             onClick={()=>props.history.push(`/messages/${props.user.id}`)} />
+                            </div>
                         )
                     })
                 }
@@ -63,3 +59,4 @@ export const UserList = (props) => {
         </section>
     )   
 }
+
