@@ -22,8 +22,8 @@ export const UserEventProvider = (props) => {
             .then(getUserEvents)
     } 
 
-    const updateUserEventBookedStatus = userEvent => {
-        return fetch(`http://localhost:8088/userEvents/${userEvent.id}`, {
+    const updateUserEventBookedStatus = userEventId => {
+        return fetch(`http://localhost:8088/userEvents/${userEventId}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
@@ -36,8 +36,8 @@ export const UserEventProvider = (props) => {
             .then(getUserEvents)
     } 
 
-    const updateUserEventDeniedStatus = userEvent => {
-        return fetch(`http://localhost:8088/userEvents/${userEvent.id}`, {
+    const updateUserEventDeniedStatus = userEventId => {
+        return fetch(`http://localhost:8088/userEvents/${userEventId}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
