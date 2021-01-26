@@ -30,34 +30,34 @@ export const OrganizerBidList = (props) => {
     console.log(currentUserBidEvents)
 
     const renderBids = () => {
-       return currentUserBidEvents.map(cube => {
-            const wrestler = users.find(user => user.id === cube.userId);
-            const technicalType = technicals.find(t => t.id === wrestler.technicalId) || {};
-            if (!cube.booked && !cube.denied) {
-                return (
-                    <div  key={cube.id}>
-                        <EventCard event={cube.event} />
-                        <div>{wrestler.name} a {technicalType.type} has bid ${cube.bid}</div>
-                        <Button label={'Accept'} 
-                        onClick={() => updateUserEventBookedStatus(cube.id)}  />
-                        <Button label={'Deny'}
-                        onClick={() => updateUserEventDeniedStatus(cube.id)} />
-                        <Button label={'Message'} 
-                        onClick={() => props.history.push(`/messages/${cube.userId}`)} />
-                    </div>
-                );
-            };
-        });
-    };
-
-    return (
+       return(
         <>
             <h2 className="organizerBids--title">Bids</h2>
             <section className="organizerBidsContainer">
                 <div className="organizerBids">
-                    {renderBids()}
+                    {currentUserBidEvents.map(cube => {
+               const wrestler = users.find(user => user.id === cube.userId);
+               const technicalType = technicals.find(t => t.id === wrestler.technicalId) || {};
+               if (!cube.booked && !cube.denied) {
+                   return (
+                       <div  key={cube.id}>
+                           <EventCard event={cube.event} />
+                           <div>{wrestler.name} a {technicalType.type} has bid ${cube.bid}</div>
+                           <Button label={'Accept'} 
+                           onClick={() => updateUserEventBookedStatus(cube.id)}  />
+                           <Button label={'Deny'}
+                           onClick={() => updateUserEventDeniedStatus(cube.id)} />
+                           <Button label={'Message'} 
+                           onClick={() => props.history.push(`/messages/${cube.userId}`)} />
+                       </div>
+                   )
+               }
+           })}
                 </div>
             </section>
         </>
-    );
+       );
+    };
+
+    return renderBids()
 };

@@ -22,28 +22,31 @@ export const WrestlerMyEventsList = (props) => {
         return currentUserBidEventsRelationships.length !== 0
     })
 
-    return (
-    <>
-        <h1 className="wrestlerMyEvents--title">My Events</h1>
-        <section className="userEventsContainer">
-            <div className="userEvents">
-                {
-                    currentUserEvents.map(cue => {
-                    if(cue.booked === true){
-                        return (
-                            <div className="booked">
-                                <EventCard key={cue.id} 
-                                event = {cue.event} 
-                                props={props}/>
-                                <div>Booked</div>
-                            </div>
-                        )
+    const renderWrestlerEvents = () => {
+        return (
+        <>
+            <h1 className="wrestlerMyEvents--title">My Events</h1>
+            <section className="userEventsContainer">
+                <div className="userEvents">
+                    {
+                        currentUserEvents.map(cue => {
+                        if(cue.booked === true){
+                            return (
+                                <div className="booked">
+                                    <EventCard key={cue.id} 
+                                    event = {cue.event} 
+                                    props={props}/>
+                                    <div>Booked</div>
+                                </div>
+                            )
+                        };
+                    })
                     }
-                })
-                }
-            </div>
-        </section>
-    </>
-    )
+                </div>
+            </section>
+        </>
+        );
+    };
 
+    return renderWrestlerEvents();
 }

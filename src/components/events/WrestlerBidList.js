@@ -23,34 +23,33 @@ export const WrestlerBidList = (props) => {
         return pendingUserBidEventsRelationships.length !== 0
     })
     
-    const renderEvents = () => {
-       return pendingUserEvents.map(cue => {
-           if (cue.booked !== true){
-               return (
-               <div key={cue.id} className={cue.denied === true ? 'denied' : 'pending'}>
-                   <EventCard
-                   event={cue.event}
-                   />
-                   {cue.denied === true ?
-                   <>
-                   <div>Denied</div>
-                   <Button label={'Delete'}
-                   onClick={()=> deleteUserEvent(cue.id)}/> 
-                   </>
-                   : <div>Pending</div>}
-               </div>
-               )
-           }
-        })
+    const renderPendingEvents = () => {
+
+        return (
+            <>
+            <h1 className="wrestlerBids--title">Bids</h1>
+            <section className="bidContainer">
+                <div className="bidEvents">{pendingUserEvents.map(cue => {
+               if (cue.booked !== true){
+                   return (
+                   <div key={cue.id} className={cue.denied === true ? 'denied' : 'pending'}>
+                       <EventCard
+                       event={cue.event}
+                       />
+                       {cue.denied === true ?
+                       <>
+                       <div>Denied</div>
+                       <Button label={'Delete'}
+                       onClick={()=> deleteUserEvent(cue.id || {})}/> 
+                       </>
+                       : <div>Pending</div>}
+                   </div>
+                   )
+               }
+            })}</div>
+            </section>
+            </>
+        )
     }
-
-    return (
-        <>
-        <h1 className="wrestlerBids--title">Bids</h1>
-        <section className="bidContainer">
-            <div className="bidEvents">{renderEvents()}</div>
-        </section>
-        </>
-    )
-
+    return renderPendingEvents();
 }

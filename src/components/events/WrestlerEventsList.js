@@ -30,32 +30,33 @@ export const WrestlerEventsList = (props) => {
     },[events]);
     
 
-
-    return (
-    <>
-        <EventSearch />
-        <h1 className="eventsPage--title">Events</h1>
-        <container className="eventsContainer">
-            <div className="events">
-                {
-                    filteredEvents.map(event => {
-                    const type = technicals.find(t => t.id === event.technicalId) || {}
-                    return (
-                    <div key={event.id}>
-                    <EventCard  
-                    event={event}
-                    technical = {type}
-                     />
-                    <Button label={'Bid'} onClick={() => {
-                    props.history.push(`/bid/${event.id}`)
-                    }}/>
-                    </div>
-                    )
-                })
-                }
-            </div>
-        </container>
-    </>
-    );
-
+    const renderEvents = () => {
+        return (
+        <>
+            <EventSearch />
+            <h1 className="eventsPage--title">Events</h1>
+            <container className="eventsContainer">
+                <div className="events">
+                    {
+                        filteredEvents.map(event => {
+                        const type = technicals.find(t => t.id === event.technicalId) || {}
+                        return (
+                        <div key={event.id}>
+                        <EventCard  
+                        event={event}
+                        technical = {type}
+                         />
+                        <Button label={'Bid'} onClick={() => {
+                        props.history.push(`/bid/${event.id}`)
+                        }}/>
+                        </div>
+                        )
+                    })
+                    }
+                </div>
+            </container>
+        </>
+        );
+    }
+    return renderEvents()
 };

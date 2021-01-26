@@ -1,7 +1,7 @@
 import React, {useContext, useEffect} from "react"
 import { Route } from "react-router-dom";
 import { UsersContext, UsersProvider } from "./users/UsersProvider";
-import { EventsList } from "./events/EventsList";
+import { OrganizerEventsList } from "./events/OrganizerEventsList";
 import { EventProvider } from "./events/EventProvider";
 import { TechnicalProvider } from "./TechnicalProvider";
 import { AccountTypeProvider } from "./AccountTypeProvider";
@@ -46,7 +46,7 @@ export const ApplicationViews = (props) => {
                                 }
                             } />
             <Route exact path="/events" render={ 
-                props =>  <EventsList {...props} />     
+                props =>  <OrganizerEventsList {...props} />     
             } />
             <Route exact path="/events/create" render={
                     props => <EventForm {...props} />
