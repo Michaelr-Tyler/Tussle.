@@ -1,9 +1,9 @@
-.wrestlersContainer {
+.usersContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.wrestlers{
+.users{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -13,7 +13,7 @@
     overflow: scroll;
 }
 
-.wrestler {
+.user {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -28,14 +28,6 @@
     width: 200px;
     min-height: 150px;
     min-width: 200px;
-}
-
-.wrestler.btn {
-    max-width: 700px;
-}
-
-.wrestler__email{
-    display: inline;
 }
 
 .searchContainer {
