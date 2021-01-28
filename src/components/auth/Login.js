@@ -1,5 +1,7 @@
 import React, { useRef } from "react"
 import { Link } from "react-router-dom";
+import { accoutTypeChecker } from "../acounts/AccountTypeChecker";
+
 import "./Login.css"
 
 
@@ -22,7 +24,7 @@ export const Login = props => {
             .then(exists => {
                 if (exists && exists.password === password.current.value) {
                     sessionStorage.setItem("tussle_user", exists.id)
-                    props.history.push("/")
+                    props.history.push(`${accoutTypeChecker(exists)}` || {})
                 } else if (exists && exists.password !== password.current.value) {
                     passwordDialog.current.showModal()
                 } else if (!exists) {
