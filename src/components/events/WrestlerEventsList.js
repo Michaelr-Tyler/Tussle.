@@ -35,7 +35,7 @@ export const WrestlerEventsList = (props) => {
         <>
             <EventSearch />
             <h1 className="eventsPage--title">Events</h1>
-            <container className="eventsContainer">
+            <div className="eventsContainer">
                 <div className="events">
                     {
                         filteredEvents.map(event => {
@@ -54,7 +54,7 @@ export const WrestlerEventsList = (props) => {
                     })
                     }
                 </div>
-            </container>
+            </div>
         </>
         );
     }

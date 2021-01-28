@@ -32,11 +32,11 @@ export const MessageList = () => {
         }
         
         })
-        // console.log(messageRelationships)
+
         return messageRelationships
     } ) || {}
 
-    console.log(currentUserHasContacted)
+
 
     
 

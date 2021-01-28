@@ -27,7 +27,6 @@ export const OrganizerBidList = (props) => {
         return currentUserBidEventsRelationships.length !== 0
     })
 
-    console.log(currentUserBidEvents)
 
     const renderBids = () => {
        return(
