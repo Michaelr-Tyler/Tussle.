@@ -1,4 +1,4 @@
-import React, { useRef, useContext, useEffect } from "react"
+import React, { useRef, useContext, useEffect, useState } from "react"
 import "./Login.css"
 import { TechnicalContext } from "../TechnicalProvider"
 import { AccountTypeContext } from "../acounts/AccountTypeProvider"
@@ -8,6 +8,7 @@ import { accoutTypeChecker } from "../acounts/AccountTypeChecker";
 export const Register = (props) => {
 const {accountTypes, getAccountTypes} = useContext(AccountTypeContext)
 const {technicals, getTechnicals} = useContext(TechnicalContext)
+const [wrestlerAccount, setWrestlerAccount] = useState(false)
 
     const Name = useRef()
     const phoneNumber = useRef()
@@ -18,6 +19,14 @@ const {technicals, getTechnicals} = useContext(TechnicalContext)
     const password = useRef()
     const verifyPassword = useRef()
     const passwordDialog = useRef()
+
+    const handleAccountChange = () =>{
+        if(parseInt(accountType.current.value) === 2){
+            setWrestlerAccount(true)
+        } else {
+            setWrestlerAccount(false)
+        }
+    }
 
     useEffect(() => {
         getAccountTypes()
@@ -92,26 +101,28 @@ const {technicals, getTechnicals} = useContext(TechnicalContext)
                         required />
                 </fieldset>
                 <fieldset className="login">
+                    <div className="form-control">
+                        <label htmlFor="accountType">Account Type </label>
+                        <select onChange={()=> handleAccountChange()} defaultValue="" name="accountType" ref={accountType} id="accountType" className="form-control" >
+                            <option value="0">Select an account type</option>
+                            {accountTypes.map(a => (
+                                <option key={a.id} value={a.id}>
+                                    {a.type}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                </fieldset>
+                {!wrestlerAccount ? "" : 
+            <>
+                <fieldset className="login">
                     <label htmlFor="lastName"> Online Presence </label>
                     <input ref={following} type="text"
                         name="following"
                         className="form-control"
                         placeholder="Number"
-                        required />
+                        />
                 </fieldset>
-                <fieldset className="login">
-                <div className="form-control">
-                    <label htmlFor="accountType">Account Type </label>
-                    <select defaultValue="" name="accountType" ref={accountType} id="accountType" className="form-control" >
-                        <option value="0">Select an account type</option>
-                        {accountTypes.map(a => (
-                            <option key={a.id} value={a.id}>
-                                {a.type}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-            </fieldset>
             <fieldset className="login">
                 <div className="form-control">
                     <label htmlFor="technicalType">Technical </label>
@@ -125,6 +136,8 @@ const {technicals, getTechnicals} = useContext(TechnicalContext)
                     </select>
                 </div>
             </fieldset>
+            </>
+            }
                 <fieldset className="login">
                     <label htmlFor="inputEmail"> Email address </label>
                     <input ref={email} type="email"
