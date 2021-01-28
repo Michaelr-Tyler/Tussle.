@@ -1,16 +1,23 @@
-import React, {useState} from "react"
+import React, {useContext, useState, useEffect} from "react"
 import { Link } from "react-router-dom"
 import * as FaIcons from "react-icons/fa"
 import * as AiIcons from "react-icons/ai"
 import * as MdIcons from "react-icons/md"
 import { IconContext } from "react-icons";
-
 import "./NavBar.css"
+import { UsersContext } from "../users/UsersProvider"
+import { accoutTypeChecker } from "../acounts/AccountTypeChecker"
 
-export const Navbar = (props) => {
+export const Navbar = () => {
+    const {currentUser, getCurrentUser} = useContext(UsersContext)
     const [sidebar, setSideBar] = useState(false)
-
+    
     const showSidebar = () => setSideBar(!sidebar)
+    
+    useEffect(() => {
+        getCurrentUser()
+        
+        },[])
 
     return (
         <>
@@ -28,25 +35,25 @@ export const Navbar = (props) => {
                     </Link>
                 </li>
                 <li className="nav-text">
-                    <Link className="navbar__link" to="/">
+                    <Link className="navbar__link" to={`${accoutTypeChecker(currentUser)}`}>
                         <AiIcons.AiOutlineHome />
                         <span>Home</span>
                         </Link>
                 </li>  
                 <li className="nav-text">
-                    <Link className="navbar__link" to="/messages">
+                    <Link className="navbar__link" to={`/messages`}>
                         <AiIcons.AiOutlineMessage />
                         <span>Messages</span>
                         </Link>
                 </li>
                 <li className="nav-text">
-                    <Link className="navbar__link" to="/events">
+                    <Link className="navbar__link" to={`${accoutTypeChecker(currentUser)}/events`}>
                         <MdIcons.MdEventAvailable />
                     <span>My Events</span>
                     </Link>
                 </li>
                 <li className="nav-text">
-                    <Link className="navbar__link" to="/bids">
+                    <Link className="navbar__link" to={`${accoutTypeChecker(currentUser)}/bids`}>
                         <MdIcons.MdLocalOffer />
                     <span>Bids</span>
                     </Link>

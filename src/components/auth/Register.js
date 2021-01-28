@@ -1,7 +1,9 @@
 import React, { useRef, useContext, useEffect } from "react"
 import "./Login.css"
-import { AccountTypeContext } from "../AccountTypeProvider"
 import { TechnicalContext } from "../TechnicalProvider"
+import { AccountTypeContext } from "../acounts/AccountTypeProvider"
+import { accoutTypeChecker } from "../acounts/AccountTypeChecker";
+
 
 export const Register = (props) => {
 const {accountTypes, getAccountTypes} = useContext(AccountTypeContext)
@@ -53,7 +55,7 @@ const {technicals, getTechnicals} = useContext(TechnicalContext)
                         .then(createdUser => {
                             if (createdUser.hasOwnProperty("id")) {
                                 sessionStorage.setItem("tussle_user", createdUser.id)
-                                props.history.push("/")
+                                props.history.push(`${accoutTypeChecker(createdUser)}`)
                             }
                         })
                         

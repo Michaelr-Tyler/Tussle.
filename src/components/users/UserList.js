@@ -1,6 +1,4 @@
-import userEvent from "@testing-library/user-event"
 import React, {useContext, useEffect, useState} from "react"
-import { AccountTypeContext } from "../AccountTypeProvider"
 import { TechnicalContext } from "../TechnicalProvider"
 import { Button } from "../utils/Button"
 import { User } from "./Users"

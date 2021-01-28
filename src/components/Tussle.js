@@ -4,12 +4,10 @@ import { ApplicationViews } from "./ApplicationViews"
 import { Navbar } from "./nav/NavBar";
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
-import "./Tussle.css"
-import { AccountTypeProvider } from "./AccountTypeProvider";
 import { UsersProvider } from "./users/UsersProvider";
 import { TechnicalProvider } from "./TechnicalProvider";
-
-
+import { AccountTypeProvider } from "./acounts/AccountTypeProvider";
+import "./Tussle.css"
 
 export const Tussle = () => (
     <>
