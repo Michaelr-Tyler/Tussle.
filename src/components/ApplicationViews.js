@@ -1,6 +1,6 @@
-import React, {useContext, useEffect} from "react"
+import React from "react"
 import { Route } from "react-router-dom";
-import { UsersContext, UsersProvider } from "./users/UsersProvider";
+import {UsersProvider } from "./users/UsersProvider";
 import { EventProvider } from "./events/EventProvider";
 import { TechnicalProvider } from "./TechnicalProvider";
 import { AccountTypeProvider } from "./acounts/AccountTypeProvider";
@@ -18,7 +18,7 @@ import { MessagesProvider } from "./messages/MessageProvider";
 import { MessageDetails } from "./messages/MessageDetails";
 import { OrganizerEventsList } from "./events/OrganizerEventsList";
 
-export const ApplicationViews = (props) => {
+export const ApplicationViews = () => {
 
     return (
         <>
@@ -31,7 +31,7 @@ export const ApplicationViews = (props) => {
             <Route exact path="/organizer" render={ props => {
                 return <>
                     <UserSearch />
-                    <UserList {...props} />
+                    <UserList />
                     </>
                 }
                     } />

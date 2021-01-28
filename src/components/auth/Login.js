@@ -22,7 +22,6 @@ export const Login = props => {
 
         existingUserCheck()
             .then(exists => {
-                console.log("exists", exists)
                 if (exists && exists.password === password.current.value) {
                     sessionStorage.setItem("tussle_user", exists.id)
                     props.history.push(`${accoutTypeChecker(exists)}` || {})
