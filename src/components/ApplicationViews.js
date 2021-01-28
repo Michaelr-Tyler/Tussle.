@@ -31,7 +31,7 @@ export const ApplicationViews = () => {
             <Route exact path="/organizer" render={ props => {
                 return <>
                     <UserSearch />
-                    <UserList />
+                    <UserList {...props}/>
                     </>
                 }
                     } />

@@ -45,10 +45,9 @@ export const UserList = (props) => {
                             <User 
                             user={wrestler}
                             technical={type}
-                            props={props}
                              />
                              <Button label={'message'} 
-                             onClick={()=>props.history.push(`/messages/${props.user.id}`)} />
+                             onClick={() => props.history.push(`/messages/${wrestler.id}`)} />
                             </div>
                         )
                     })

@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect, useRef } from "react"
 import { UsersContext } from "../users/UsersProvider"
+import { Button } from "../utils/Button"
 import { Chat } from "./ChatComponent"
 import { MessagesContext } from "./MessageProvider"
 import "./Messages.css"
@@ -43,25 +44,11 @@ export const MessageDetails = (props) => {
         setClickedOnUser(clickedOnUser)
     }, [users])
 
-    // useEffect(() => {
-    //     const messagesBetween = messages.filter(m => m.recieverId === clickedOnUser.id && m.userId === currentUser.id) || {}
-    //     setMessagesBetween(messagesBetween)
-    //     // const messagesBetween = messages.find(m => m.recieverId === clickedOnUser.id || m.userId === currentUser.id) || {}
-    //     // setMessagesBetween(messagesBetween)
-    // },[messages])
-
     const messagesSent = messages.filter(m => {
         return (m.recieverId === clickedOnUser.id && m.userId === currentUser.id) || (m.userId === clickedOnUser.id && m.recieverId === currentUser.id)
     })
     const newestMessageFirst = messagesSent.reverse()
-    // const messagesRecieved = messages.filter(m => {
-    //     return (m.userId === clickedOnUser.id && m.recieverId === currentUser.id)
-    // })
-
-
-    // const allTheMessageObjectsBetweenTheseTwoUsers = messagesSent.concat(messagesRecieved)
-
-    // console.log(allTheMessageObjectsBetweenTheseTwoUsers)
+    console.log(newestMessageFirst)
 
 
 
@@ -73,7 +60,6 @@ export const MessageDetails = (props) => {
             recieverId: parseInt(props.match.params.userId),
             timeStamp: Date.now()
         })
-        // .then(() => props.history.push(`/messages/${clickedOnUser.id}`))
     }
 
     return (
@@ -82,13 +68,7 @@ export const MessageDetails = (props) => {
             <div className="messagesContainer">
                 {
                     newestMessageFirst.map(m => {
-                    return (
-                    <>
-                    <Chat key={m.id} 
-                    message={m}
-                     />
-                    </>
-                    )
+                    return <Chat  key={m.id} message={m} />
                 })
                 }
             </div>
@@ -99,13 +79,7 @@ export const MessageDetails = (props) => {
                         <input type="text" ref={message} autoComplete="none" autoFocus className="from-control"
                             placeholder="message"
                         />
-                <button type="submit"
-                    onClick={evt => {
-                        evt.preventDefault()
-                        newMessage()
-                    }}
-                    className="btn btn-message">
-                    Send</button>
+                <Button label={'Send'} onClick={() => newMessage()} />
                     </div>
                 </fieldset>
             </form>
